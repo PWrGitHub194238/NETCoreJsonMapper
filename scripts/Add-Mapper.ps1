@@ -1,3 +1,5 @@
+. $PSScriptRoot\Remove-Mapper.ps1
+
 [string]$SLN_DIR = Resolve-Path -Path "$PSScriptRoot\..\NETCoreJsonMapper"
 
 <#
@@ -18,13 +20,7 @@ function global:Add-Mapper
     [string]$projectName = Read-Host -Prompt 'Input your .NET Core Library project name'
 	[string]$targetFramework = Get-ProjectTargetFramework
 
-    dotnet sln "$SLN_DIR\NETCoreJsonMapper.sln" remove "$SLN_DIR\$projectName"
-    Remove-Item `
-        -Path "$SLN_DIR\$projectName" `
-        -Recurse -Force `
-        -ErrorAction SilentlyContinue
-    dotnet remove "$SLN_DIR\NETCoreJsonMapper" reference "..\$projectName\$projectName.csproj"
-
+    Remove-Mapper -ProjectName "$projectName" -RemoveOnly | Out-Null
     dotnet new classlib `
         --output "$SLN_DIR\$projectName\" `
         --framework $targetFramework
@@ -224,5 +220,3 @@ function local:Create-ExampleJson
         -Path "$SLN_DIR\$projectName\JsonDataSource\Example.json" `
         -Value "$exampleJsonDataSource"
 }
-
-Add-Mapper

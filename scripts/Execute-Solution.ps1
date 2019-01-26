@@ -61,10 +61,10 @@ function local:Get-ExecuteCommand
     foreach ($projFullPath in $projFullPathArray)
     {
         $projParams += "-i"
-        $projParams += "$projFullPath\JsonDataSource"
+        $projParams += "`"$projFullPath\JsonDataSource`""
     }
     $projParams += "-o"
-        $projParams += "$outuptDir"
+        $projParams += "`"$outuptDir`""
     return $projParams
 }
 

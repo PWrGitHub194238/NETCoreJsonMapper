@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\NETCoreJsonMapper.Common\NETCoreJsonMapper.Common.csproj" />
+    <ProjectReference Include="..\NETCoreJsonMapper.Interface\NETCoreJsonMapper.Interface.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+</Project>

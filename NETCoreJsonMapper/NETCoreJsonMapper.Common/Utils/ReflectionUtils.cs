@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 
 namespace NETCoreJsonMapper.Common.Utils
 {
@@ -13,8 +17,17 @@ namespace NETCoreJsonMapper.Common.Utils
         /// <returns></returns>
         internal static bool ValidateJsonStringType(string jsonString, Type expectedType)
         {
-            // TODO
-            return true;
+            ISet<string> jsonKeySet = JsonUtils.GetJsonKeyCollection(jsonString: jsonString);
+            ISet<string> classKeySet = GetClassPropertyCollection(jsonType: expectedType);
+            return JsonUtils.ValidateJsonWithClass(sourceJsonKeySet: jsonKeySet,
+                targetClassKeySet: classKeySet);
+        }
+
+        private static ISet<string> GetClassPropertyCollection(Type jsonType)
+        {
+            return jsonType.GetProperties(BindingFlags.Instance | BindingFlags.Public)
+                .Where(p => Attribute.IsDefined(p, typeof(JsonPropertyAttribute)))
+                .Select(p => p.Name).ToHashSet();
         }
     }
 }

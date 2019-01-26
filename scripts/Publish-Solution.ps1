@@ -27,4 +27,4 @@ function global:Publish-Solution
         --output $Target
 }
 
-Publish-Solution -Target $(Resolve-Path -Path  "$SLN_DIR\..\publish")
+Publish-Solution -Target "$(Resolve-Path -Path  "$SLN_DIR\..")\publish"

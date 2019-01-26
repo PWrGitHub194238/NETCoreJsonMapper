@@ -44,7 +44,7 @@ namespace NETCoreJsonMapper.Builders
                 .Where(o => o.Template.Equals(CMD_OUTPUT_TEMPLATE)).FirstOrDefault();
 
             if (!ValidateInputCommandOption(inputOption: inputOption, validationMessage: out validationErrorMsg)
-                || ValidateOutputCommandOption(outputOption: inputOption, validationMessage: out validationErrorMsg))
+                || !ValidateOutputCommandOption(outputOption: outputOption, validationMessage: out validationErrorMsg))
             {
                 Console.WriteLine(validationErrorMsg);
                 commandLineApplication.ShowHelp();

@@ -29,10 +29,11 @@ namespace NETCoreJsonMapper
                     string outputJsonString = ReflectionUtils.InvokeJsonMapping(jsonString: jsonString,
                         deserializationType: sourceType);
 
-                    mappedJsonFilePaths.Add(jsonString);
+                    mappedJsonFilePaths.Add(jsonFilePath);
 
                     File.WriteAllTextAsync(
-                        Path.Combine(outputDir, $"{Path.GetFileNameWithoutExtension(jsonFilePath)}-result.json"),
+                        Path.Combine(outputDir,
+                        $"{sourceType.Name}-{Path.GetFileNameWithoutExtension(jsonFilePath)}-result.json"),
                         outputJsonString);
                 }
             }
