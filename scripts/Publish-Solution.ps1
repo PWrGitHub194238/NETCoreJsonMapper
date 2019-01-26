@@ -1,3 +1,5 @@
+[string]$SLN_DIR = Resolve-Path -Path "$PSScriptRoot\..\NETCoreJsonMapper"
+
 <#
     .SYNOPSIS
         Publsh the current solution ('NETCoreJsonMapper') to a given $Target directory.
@@ -17,12 +19,12 @@ function global:Publish-Solution
     )
     Remove-Item -Path $Target -Recurse -Force -ErrorAction SilentlyContinue
 
-    dotnet clean $PSScriptRoot
-    dotnet restore $PSScriptRoot
-    dotnet build $PSScriptRoot
-    dotnet publish "$PSScriptRoot\NETCoreJsonMapper" `
+    dotnet clean $SLN_DIR
+    dotnet restore $SLN_DIR
+    dotnet build $SLN_DIR
+    dotnet publish "$SLN_DIR\NETCoreJsonMapper" `
         --configuration Release `
         --output $Target
 }
 
-Publish-Solution -Target "$PSScriptRoot\publish"
+Publish-Solution -Target $(Resolve-Path -Path  "$SLN_DIR\..\publish")

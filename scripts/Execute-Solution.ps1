@@ -1,3 +1,5 @@
+[string]$SLN_DIR = Resolve-Path -Path "$PSScriptRoot\..\NETCoreJsonMapper"
+
 <#
     .SYNOPSIS
         Executes a given $Target with a given set of $Parameters.
@@ -20,7 +22,9 @@ function local:Execute-Solution
         [Parameter(Mandatory = $false)]
         [string[]]$Parameters
     )
-    dotnet $Target $Parameters.Sp
+    Write-Host -ForegroundColor White "Executing with parameters:"
+    Write-Host -ForegroundColor White "> $Parameters"
+    dotnet $Target $Parameters
 }
 
 <#
@@ -28,7 +32,7 @@ function local:Execute-Solution
         Returns a list of arguments to be passed 
         to the NETCoreJsonMapper executable as parameters.
     .DESCRIPTION
-        Given the current directory ($PSScriptRoot), the cmdlet will recursively scan through 
+        Given the current directory ($SLN_DIR), the cmdlet will recursively scan through 
         all directories on the same level as the main project (NETCoreJsonMapper) 
         and returns every 'JsonDataSource' directory from any project that contains it.
         It applies all resulted paths to the argument string for a NETCoreJsonMapper executable
@@ -43,12 +47,12 @@ function local:Get-ExecuteCommand
 
     [string]$outuptDir = Read-HostWithDefault `
         -Prompt 'Input JSON output directory' `
-        -Default "$PSScriptRoot\output"
+        -Default "$(Resolve-Path "$SLN_DIR\..")\output"
 
     [string[]]$projParams = @()
     [string[]]$projFullPathArray = Get-ChildItem `
             -File `
-            -Path $PSScriptRoot `
+            -Path $SLN_DIR `
             -Recurse `
             -Include '*.csproj' `
         | ? { Test-Path ($_.DirectoryName + '\JsonDataSource' ) } `
@@ -79,7 +83,7 @@ function local:Get-ExecuteCommand
     .EXAMPLE
         Read-HostWithDefault `
             -Prompt 'Input JSON output directory' `
-            -Default "$PSScriptRoot\output"
+            -Default "$SLN_DIR\output"
 #>
 function local:Read-HostWithDefault
 {
@@ -99,5 +103,5 @@ function local:Read-HostWithDefault
 }
 
 Execute-Solution `
-    -Target "$PSScriptRoot\publish\NETCoreJsonMapper.dll" `
+    -Target $(Resolve-Path -Path "$SLN_DIR\..\publish\NETCoreJsonMapper.dll") `
     -Parameters $(Get-ExecuteCommand)

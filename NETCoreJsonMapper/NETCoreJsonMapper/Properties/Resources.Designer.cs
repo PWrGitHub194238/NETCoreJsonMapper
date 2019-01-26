@@ -61,7 +61,7 @@ namespace NETCoreJsonMapper.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to A .NET Core 3.0 project to convert one JSON formatted file to another based on a given source and target classes loaded dynamically..
         /// </summary>
         internal static string CMD_APP_DESC {
             get {
@@ -70,7 +70,7 @@ namespace NETCoreJsonMapper.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Test.
+        ///   Looks up a localized string similar to A full path to the directory from which all JSON formatted files will be processed..
         /// </summary>
         internal static string CMD_INPUT_DESC {
             get {
@@ -79,11 +79,38 @@ namespace NETCoreJsonMapper.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to The given input directory: &apos;{0}&apos; does not exists.\n.
+        /// </summary>
+        internal static string CMD_INPUT_VALIDATE_ERROR_NOT_EXIST {
+            get {
+                return ResourceManager.GetString("CMD_INPUT_VALIDATE_ERROR_NOT_EXIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A full path to the directory where all outputed JOSN formatted files will be saved..
         /// </summary>
         internal static string CMD_OUTPUT_DESC {
             get {
                 return ResourceManager.GetString("CMD_OUTPUT_DESC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot create a given output directory: `{0}&apos;. An error has occurred: &apos;{1}&apos;..
+        /// </summary>
+        internal static string CMD_OUTPUT_VALIDATE_ERROR_CREATE_DIR {
+            get {
+                return ResourceManager.GetString("CMD_OUTPUT_VALIDATE_ERROR_CREATE_DIR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No output directory was defined..
+        /// </summary>
+        internal static string CMD_OUTPUT_VALIDATE_ERROR_NOT_SET {
+            get {
+                return ResourceManager.GetString("CMD_OUTPUT_VALIDATE_ERROR_NOT_SET", resourceCulture);
             }
         }
     }

@@ -118,12 +118,21 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CMD_APP_DESC" xml:space="preserve">
-    <value />
+    <value>A .NET Core 3.0 project to convert one JSON formatted file to another based on a given source and target classes loaded dynamically.</value>
   </data>
   <data name="CMD_INPUT_DESC" xml:space="preserve">
-    <value>Test</value>
+    <value>A full path to the directory from which all JSON formatted files will be processed.</value>
+  </data>
+  <data name="CMD_INPUT_VALIDATE_ERROR_NOT_EXIST" xml:space="preserve">
+    <value>The given input directory: '{0}' does not exists.\n</value>
   </data>
   <data name="CMD_OUTPUT_DESC" xml:space="preserve">
-    <value />
+    <value>A full path to the directory where all outputed JOSN formatted files will be saved.</value>
+  </data>
+  <data name="CMD_OUTPUT_VALIDATE_ERROR_CREATE_DIR" xml:space="preserve">
+    <value>Cannot create a given output directory: `{0}'. An error has occurred: '{1}'.</value>
+  </data>
+  <data name="CMD_OUTPUT_VALIDATE_ERROR_NOT_SET" xml:space="preserve">
+    <value>No output directory was defined.</value>
   </data>
 </root>

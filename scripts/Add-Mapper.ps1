@@ -1,3 +1,5 @@
+[string]$SLN_DIR = Resolve-Path -Path "$PSScriptRoot\..\NETCoreJsonMapper"
+
 <#
     .SYNOPSIS
     .DESCRIPTION
@@ -18,23 +20,23 @@ function global:Add-Mapper
 
     [string]$targetFramework = Get-ProjectTargetFramework
 
-    dotnet sln "$PSScriptRoot\SitecoreJsonMapper.sln" remove "$PSScriptRoot\$projectName"
+    dotnet sln "$SLN_DIR\SitecoreJsonMapper.sln" remove "$SLN_DIR\$projectName"
     Remove-Item `
-        -Path "$PSScriptRoot\$projectName" `
+        -Path "$SLN_DIR\$projectName" `
         -Recurse -Force `
         -ErrorAction SilentlyContinue
-    dotnet remove "$PSScriptRoot\SitecoreJsonMapper" reference "..\$projectName\$projectName.cproj"
+    dotnet remove "$SLN_DIR\SitecoreJsonMapper" reference "..\$projectName\$projectName.cproj"
 
     dotnet new classlib `
-        --output "$PSScriptRoot\$projectName\" `
+        --output "$SLN_DIR\$projectName\" `
         --framework $targetFramework
 
-    Remove-Item -Path "$PSScriptRoot\$ProjectName\*.cs" -Force
+    Remove-Item -Path "$SLN_DIR\$ProjectName\*.cs" -Force
 
-    dotnet add "$PSScriptRoot\SitecoreJsonMapper" reference "$PSScriptRoot\$projectName"
-    dotnet add "$PSScriptRoot\$projectName" reference "$PSScriptRoot\SitecoreJsonMapper.Common\"
-    dotnet add "$PSScriptRoot\$projectName" reference "$PSScriptRoot\SitecoreJsonMapper.Interface\"
-    dotnet sln "$PSScriptRoot\SitecoreJsonMapper.sln" add "$PSScriptRoot\$projectName"
+    dotnet add "$SLN_DIR\SitecoreJsonMapper" reference "$SLN_DIR\$projectName"
+    dotnet add "$SLN_DIR\$projectName" reference "$SLN_DIR\SitecoreJsonMapper.Common\"
+    dotnet add "$SLN_DIR\$projectName" reference "$SLN_DIR\SitecoreJsonMapper.Interface\"
+    dotnet sln "$SLN_DIR\SitecoreJsonMapper.sln" add "$SLN_DIR\$projectName"
 
     Create-ProjectFiles -ProjectName $projectName
 
@@ -52,7 +54,7 @@ function local:Get-ProjectTargetFramework
     [OutputType([void])]
     param (
     )
-    [Xml]$cprojFile = Get-Content "$PSScriptRoot\SitecoreJsonMapper\SitecoreJsonMapper.csproj"
+    [Xml]$cprojFile = Get-Content "$SLN_DIR\SitecoreJsonMapper\SitecoreJsonMapper.csproj"
     [Xml.XmlNode]$targetFrameworkNode = $cprojFile.SelectSingleNode('/Project/PropertyGroup/TargetFramework')
     $targetFrameworkNode.InnerText
 }
@@ -74,13 +76,13 @@ function local:Create-ProjectFiles
     )
     New-Item `
         -Type Directory `
-        -Path "$PSScriptRoot\$ProjectName\Mappings"
+        -Path "$SLN_DIR\$ProjectName\Mappings"
     Create-JsonDataSource -ProjectName $ProjectName
     Create-JsonDataTarget -ProjectName $ProjectName
 
     New-Item `
         -Type Directory `
-        -Path "$PSScriptRoot\$ProjectName\JsonDataSource"
+        -Path "$SLN_DIR\$ProjectName\JsonDataSource"
     Create-ExampleJson -ProjectName $ProjectName
  }
 
@@ -101,7 +103,7 @@ function local:Create-JsonDataSource
     )
     New-Item `
         -Type File `
-        -Path "$PSScriptRoot\$ProjectName\Mappings\JsonDataSource.cs"
+        -Path "$SLN_DIR\$ProjectName\Mappings\JsonDataSource.cs"
     [string]$jsonDataSourceTemplateClass =
 @"
 using SitecoreJsonMapper.Common.Mappings;
@@ -136,7 +138,7 @@ namespace {0}.Mappings
     $jsonDataSourceTemplateClass = $jsonDataSourceTemplateClass.Replace("{0}", "$ProjectName")
 
     Set-Content `
-        -Path "$PSScriptRoot\$projectName\Mappings\JsonDataSource.cs" `
+        -Path "$SLN_DIR\$projectName\Mappings\JsonDataSource.cs" `
         -Value "$jsonDataSourceTemplateClass"
 }
 
@@ -157,7 +159,7 @@ function local:Create-JsonDataTarget
     )
     New-Item `
         -Type File `
-        -Path "$PSScriptRoot\$ProjectName\Mappings\JsonDataTarget.cs"
+        -Path "$SLN_DIR\$ProjectName\Mappings\JsonDataTarget.cs"
     [string]$jsonDataTargetTemplateClass =
 @"
 using SitecoreJsonMapper.Interface.Mappings;
@@ -179,7 +181,7 @@ namespace {0}.Mappings
     $jsonDataTargetTemplateClass = $jsonDataTargetTemplateClass.Replace("{0}", "$ProjectName")
 
     Set-Content `
-        -Path "$PSScriptRoot\$projectName\Mappings\JsonDataTarget.cs" `
+        -Path "$SLN_DIR\$projectName\Mappings\JsonDataTarget.cs" `
         -Value "$jsonDataTargetTemplateClass"
 }
 
@@ -200,7 +202,7 @@ function local:Create-ExampleJson
     )
     New-Item `
         -Type File `
-        -Path "$PSScriptRoot\$ProjectName\JsonDataSource\Example.json"
+        -Path "$SLN_DIR\$ProjectName\JsonDataSource\Example.json"
     [string]$exampleJsonDataSource =
 @"
 {
@@ -209,7 +211,7 @@ function local:Create-ExampleJson
 "@
 
     Set-Content `
-        -Path "$PSScriptRoot\$projectName\JsonDataSource\Example.json" `
+        -Path "$SLN_DIR\$projectName\JsonDataSource\Example.json" `
         -Value "$exampleJsonDataSource"
 }
 
