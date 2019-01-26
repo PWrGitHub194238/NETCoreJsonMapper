@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28516.95
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NETCoreJsonMapper", "NETCoreJsonMapper\NETCoreJsonMapper.csproj", "{67558828-1990-4020-B50D-4E7CC34100FA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NETCoreJsonMapper.Interface", "NETCoreJsonMapper.Interface\NETCoreJsonMapper.Interface.csproj", "{D5D554FA-745C-437C-BF52-048A9A8D67A2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NETCoreJsonMapper.Common", "NETCoreJsonMapper.Common\NETCoreJsonMapper.Common.csproj", "{A402E7EE-4EE4-4DB0-8AAC-EFC4F7FEA889}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{67558828-1990-4020-B50D-4E7CC34100FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67558828-1990-4020-B50D-4E7CC34100FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67558828-1990-4020-B50D-4E7CC34100FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67558828-1990-4020-B50D-4E7CC34100FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5D554FA-745C-437C-BF52-048A9A8D67A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5D554FA-745C-437C-BF52-048A9A8D67A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5D554FA-745C-437C-BF52-048A9A8D67A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5D554FA-745C-437C-BF52-048A9A8D67A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A402E7EE-4EE4-4DB0-8AAC-EFC4F7FEA889}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A402E7EE-4EE4-4DB0-8AAC-EFC4F7FEA889}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A402E7EE-4EE4-4DB0-8AAC-EFC4F7FEA889}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A402E7EE-4EE4-4DB0-8AAC-EFC4F7FEA889}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {124FF161-F53A-4A6A-8153-D2FA3C33F145}
+	EndGlobalSection
+EndGlobal
