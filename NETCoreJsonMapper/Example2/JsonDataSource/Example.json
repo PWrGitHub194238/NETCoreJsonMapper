@@ -1,6 +1,19 @@
 {
-	"ExampleProperty": "ExampleValue",
-	"ExampleObject": {
-		"ExampleObjectProperty": "ExampleInnerValue"
+	"OuterProperty": "OuterValue",
+	"OuterObject": {
+		"InnerProperty": "InnerValue"
+	},
+	"SecondOuterObject": {
+		"SecondInnerProperty": "InnerValue",
+		"OuterObject": {
+			"InnerProperty": "InnerValue"
+		},
+		"ChildObject": {
+			"SecondInnerProperty": "InnerValue",
+			"OuterObject": {
+				"InnerProperty": "InnerValue"
+			},
+			"ChildObject": null
+		}
 	}
 }

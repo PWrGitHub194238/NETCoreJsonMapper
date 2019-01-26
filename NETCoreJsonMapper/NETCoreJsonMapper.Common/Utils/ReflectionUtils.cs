@@ -43,8 +43,7 @@ namespace NETCoreJsonMapper.Common.Utils
                         Type sourcePropertyType = sourceProperty.PropertyType;
                         object targetPropertyValue = targetProperty.GetValue(targetInstance);
                         Type targetPropertyType = targetProperty.PropertyType;
-
-                        if (targetPropertyValue == null && sourcePropertyType.Equals(targetPropertyType))
+                        if ((targetPropertyValue == null || targetPropertyValue.Equals(0)) && sourcePropertyType == targetPropertyType)
                         {
                             targetProperty.SetValue(targetInstance, sourcePropertyValue);
                         }

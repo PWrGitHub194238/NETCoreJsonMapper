@@ -1,3 +1,5 @@
 {
-  "ExampleProperty": "ExampleValue"
+  "FirstProperty": "FirstValue",
+  "SecondProperty": 2,
+  "ThirdProperty": 3
 }
