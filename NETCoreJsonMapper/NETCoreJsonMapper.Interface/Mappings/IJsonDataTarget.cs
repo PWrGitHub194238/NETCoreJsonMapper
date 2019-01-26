@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SitecoreJsonMapper.Interface.Mappings
+namespace NETCoreJsonMapper.Interface.Mappings
 {
     public interface IJsonDataTarget
     {

@@ -1,10 +1,10 @@
 ﻿using Newtonsoft.Json;
-using SitecoreJsonMapper.Builders;
+using NETCoreJsonMapper.Builders;
 using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace SitecoreJsonMapper
+namespace NETCoreJsonMapper
 {
     internal class Program
     {

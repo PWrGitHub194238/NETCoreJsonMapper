@@ -2,7 +2,7 @@
 using System.IO;
 using System.Linq;
 
-namespace SitecoreJsonMapper.Utils
+namespace NETCoreJsonMapper.Utils
 {
     internal static class FileUtils
     {

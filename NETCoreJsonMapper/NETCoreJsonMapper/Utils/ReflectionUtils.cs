@@ -6,7 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.Loader;
 
-namespace SitecoreJsonMapper.Utils
+namespace NETCoreJsonMapper.Utils
 {
     internal static class ReflectionUtils
     {

@@ -1,6 +1,6 @@
-﻿namespace SitecoreJsonMapper.Interface.Mappings
+﻿namespace NETCoreJsonMapper.Interface.Mappings
 {
-    public interface IJsonDataSource<TJsonTarget> 
+    public interface IJsonDataSource<TJsonTarget>
         where TJsonTarget : new()
     {
     }

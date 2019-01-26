@@ -1,8 +1,8 @@
-﻿using SitecoreJsonMapper.Common.Utils;
-using SitecoreJsonMapper.Interface.Mappings;
+﻿using NETCoreJsonMapper.Common.Utils;
+using NETCoreJsonMapper.Interface.Mappings;
 using System;
 
-namespace SitecoreJsonMapper.Common.Mappings
+namespace NETCoreJsonMapper.Common.Mappings
 {
     public abstract class AJsonDataSource<TJsonTarget> : IJsonDataSource<TJsonTarget>
         where TJsonTarget : new()

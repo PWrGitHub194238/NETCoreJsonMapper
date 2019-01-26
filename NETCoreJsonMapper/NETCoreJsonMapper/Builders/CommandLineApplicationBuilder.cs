@@ -1,10 +1,11 @@
 ﻿using Microsoft.Extensions.CommandLineUtils;
-using SitecoreJsonMapper.Utils;
+using NETCoreJsonMapper.Utils;
 using System;
 using NETCoreJsonMapper.Properties;
 using System.IO;
+using System.Linq;
 
-namespace SitecoreJsonMapper.Builders
+namespace NETCoreJsonMapper.Builders
 {
     internal static class CommandLineApplicationBuilder
     {
@@ -12,9 +13,7 @@ namespace SitecoreJsonMapper.Builders
 
         private const string CMD_HELP_TEMPLATE = "-?|-h|--help";
         private const string CMD_INPUT_TEMPLATE = "-i | --input-dir";
-        private const int CMD_INPUT_IDX = 0;
         private const string CMD_OUTPUT_TEMPLATE = "-o | --output-dir";
-        private const int CMD_OUTPUT_IDX = 1;
 
         internal static void ParseCmdLneArguments(string[] args)
         {
@@ -24,12 +23,12 @@ namespace SitecoreJsonMapper.Builders
                 Description = Resources.CMD_APP_DESC
             };
             commandLineApplication.HelpOption(CMD_HELP_TEMPLATE);
-            commandLineApplication.Options.Add(commandLineApplication.Option(template: CMD_INPUT_TEMPLATE,
+            commandLineApplication.Option(template: CMD_INPUT_TEMPLATE,
                         description: Resources.CMD_INPUT_DESC,
-                        optionType: CommandOptionType.MultipleValue));
-            commandLineApplication.Options.Add(commandLineApplication.Option(template: CMD_OUTPUT_TEMPLATE,
+                        optionType: CommandOptionType.MultipleValue);
+            commandLineApplication.Option(template: CMD_OUTPUT_TEMPLATE,
                         description: Resources.CMD_OUTPUT_DESC,
-                        optionType: CommandOptionType.SingleValue));
+                        optionType: CommandOptionType.SingleValue);
 
             commandLineApplication.OnExecute(() =>
                 OnExecuteHandler(commandLineApplication: commandLineApplication));
@@ -39,8 +38,10 @@ namespace SitecoreJsonMapper.Builders
         private static int OnExecuteHandler(CommandLineApplication commandLineApplication)
         {
             string validationErrorMsg;
-            CommandOption inputOption = commandLineApplication.Options[CMD_INPUT_IDX];
-            CommandOption outputOption = commandLineApplication.Options[CMD_OUTPUT_IDX];
+            CommandOption inputOption = commandLineApplication.GetOptions()
+                .Where(o => o.Template.Equals(CMD_INPUT_TEMPLATE)).FirstOrDefault();
+            CommandOption outputOption = commandLineApplication.GetOptions()
+                .Where(o => o.Template.Equals(CMD_OUTPUT_TEMPLATE)).FirstOrDefault();
 
             if (!ValidateInputCommandOption(inputOption: inputOption, validationMessage: out validationErrorMsg)
                 || ValidateOutputCommandOption(outputOption: inputOption, validationMessage: out validationErrorMsg))
@@ -59,11 +60,15 @@ namespace SitecoreJsonMapper.Builders
         private static bool ValidateInputCommandOption(CommandOption inputOption, out string validationMessage)
         {
             validationMessage = string.Empty;
-            foreach (string inputFullPath in inputOption.Values)
+
+            if (inputOption != null && inputOption.HasValue())
             {
-                if (!Directory.Exists(inputFullPath))
+                foreach (string inputFullPath in inputOption.Values)
                 {
-                    validationMessage += string.Format(Resources.CMD_INPUT_VALIDATE_ERROR_NOT_EXIST, inputFullPath);
+                    if (!Directory.Exists(inputFullPath))
+                    {
+                        validationMessage += string.Format(Resources.CMD_INPUT_VALIDATE_ERROR_NOT_EXIST, inputFullPath);
+                    }
                 }
             }
             return validationMessage.Equals(string.Empty);
@@ -72,7 +77,8 @@ namespace SitecoreJsonMapper.Builders
         private static bool ValidateOutputCommandOption(CommandOption outputOption, out string validationMessage)
         {
             validationMessage = string.Empty;
-            if (!outputOption.HasValue())
+
+            if (outputOption == null || !outputOption.HasValue())
             {
                 validationMessage = Resources.CMD_OUTPUT_VALIDATE_ERROR_NOT_SET;
             }

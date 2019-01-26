@@ -2,7 +2,7 @@
 using Serilog.Core;
 using System;
 
-namespace SitecoreJsonMapper.Utils
+namespace NETCoreJsonMapper.Utils
 {
     internal static class LogUtils
     {

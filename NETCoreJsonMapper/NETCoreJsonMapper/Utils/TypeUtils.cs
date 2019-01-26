@@ -1,9 +1,9 @@
-﻿using SitecoreJsonMapper.Interface.Mappings;
+﻿using NETCoreJsonMapper.Interface.Mappings;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SitecoreJsonMapper.Utils
+namespace NETCoreJsonMapper.Utils
 {
     internal static class TypeUtils
     {

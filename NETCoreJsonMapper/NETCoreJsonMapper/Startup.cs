@@ -1,9 +1,9 @@
-﻿using SitecoreJsonMapper.Utils;
+﻿using NETCoreJsonMapper.Utils;
 using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace SitecoreJsonMapper
+namespace NETCoreJsonMapper
 {
     internal static class Startup
     {

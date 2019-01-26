@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SitecoreJsonMapper.Common.Utils
+namespace NETCoreJsonMapper.Common.Utils
 {
     internal class ReflectionUtils
     {
