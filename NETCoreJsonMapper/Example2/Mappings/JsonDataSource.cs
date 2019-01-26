@@ -1,4 +1,5 @@
 using NETCoreJsonMapper.Common.Mappings;
+using Newtonsoft.Json;
 
 namespace Example2.Mappings
 {
@@ -11,18 +12,15 @@ namespace Example2.Mappings
         /// Put all properties of a generated RootObject class here.
         /// You can set JsonDataTarget properties by the set accessor.
         /// </summary>
-        public string ExampleProperty2 {
-            set {
-                jsonDataTarget.ExampleProperty2 = $"{value}-generated";
-            }
-        }
+        [JsonProperty()]
+        public string ExampleProperty2 { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         protected override void PostProcess()
         {
-
+            //base.PostProcess();
         }
     }
 }

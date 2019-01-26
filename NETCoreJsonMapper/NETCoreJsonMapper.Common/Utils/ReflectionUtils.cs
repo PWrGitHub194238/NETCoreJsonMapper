@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using NETCoreJsonMapper.Common.Mappings;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,33 @@ namespace NETCoreJsonMapper.Common.Utils
                 targetClassKeySet: classKeySet);
         }
 
-        private static ISet<string> GetClassPropertyCollection(Type jsonType)
+        internal static void SetemptyProperties<TJsonTarget>(AJsonDataSource<TJsonTarget> sourceInstance,
+            TJsonTarget targetInstance, Type sourceType, Type targetType) where TJsonTarget : new()
+        {
+            ISet<string> classKeySet = ReflectionUtils.GetClassPropertyCollection(sourceType);
+            foreach (string property in classKeySet)
+            {
+                PropertyInfo sourceProperty = sourceType.GetProperty(property,
+                    BindingFlags.Instance | BindingFlags.Public);
+
+                if (sourceProperty.GetMethod != null)
+                {
+                    PropertyInfo targetProperty = targetType.GetProperty(property,
+                        BindingFlags.Instance | BindingFlags.Public);
+                    if (targetProperty.GetMethod != null)
+                    {
+                        object sourcePropertyValue = sourceProperty.GetValue(sourceInstance);
+                        object targetPropertyValue = targetProperty.GetValue(targetInstance);
+                        if (targetPropertyValue == null)
+                        {
+                            targetProperty.SetValue(targetInstance, sourcePropertyValue);
+                        }
+                    }
+                }
+            }
+        }
+
+        internal static ISet<string> GetClassPropertyCollection(Type jsonType)
         {
             return jsonType.GetProperties(BindingFlags.Instance | BindingFlags.Public)
                 .Where(p => Attribute.IsDefined(p, typeof(JsonPropertyAttribute)))

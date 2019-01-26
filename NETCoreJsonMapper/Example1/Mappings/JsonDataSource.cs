@@ -24,7 +24,7 @@ namespace Example1.Mappings
         /// </summary>
         protected override void PostProcess()
         {
-
+            base.PostProcess();
         }
     }
 }

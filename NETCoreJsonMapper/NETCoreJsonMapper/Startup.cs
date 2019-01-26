@@ -33,7 +33,7 @@ namespace NETCoreJsonMapper
 
                     File.WriteAllTextAsync(
                         Path.Combine(outputDir,
-                        $"{sourceType.Name}-{Path.GetFileNameWithoutExtension(jsonFilePath)}-result.json"),
+                        $"{sourceType.Assembly.GetName().Name}-{Path.GetFileNameWithoutExtension(jsonFilePath)}-result.json"),
                         outputJsonString);
                 }
             }
