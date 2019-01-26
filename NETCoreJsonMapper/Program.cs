@@ -1,4 +1,8 @@
-﻿using SitecoreJsonMapper.Builders;
+﻿using Newtonsoft.Json;
+using SitecoreJsonMapper.Builders;
+using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace SitecoreJsonMapper
 {
