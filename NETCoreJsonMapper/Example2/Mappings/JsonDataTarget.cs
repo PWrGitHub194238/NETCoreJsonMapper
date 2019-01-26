@@ -1,5 +1,6 @@
 using NETCoreJsonMapper.Interface.Mappings;
 using Newtonsoft.Json;
+using static Example2.Mappings.JsonDataSource;
 
 namespace Example2.Mappings
 {
@@ -8,10 +9,10 @@ namespace Example2.Mappings
     /// </summary>
     public class JsonDataTarget : IJsonDataTarget
     {
-        /// <summary>
-        /// 
-        /// </summary>
         [JsonProperty()]
-        public string ExampleProperty2 { get; set; }
+        public string ExampleProperty { get; set; }
+
+        [JsonProperty()]
+        public ExampleObjectClass ExampleObject { get; set; }
     }
 }

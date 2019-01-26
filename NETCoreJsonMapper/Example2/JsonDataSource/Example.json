@@ -1,3 +1,6 @@
 {
-  "ExampleProperty2": "ExampleValue"
+	"ExampleProperty": "ExampleValue",
+	"ExampleObject": {
+		"ExampleObjectProperty": "ExampleInnerValue"
+	}
 }

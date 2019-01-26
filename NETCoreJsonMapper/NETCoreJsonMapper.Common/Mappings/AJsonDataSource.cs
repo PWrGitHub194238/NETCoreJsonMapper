@@ -20,7 +20,7 @@ namespace NETCoreJsonMapper.Common.Mappings
 
         protected virtual void PostProcess()
         {
-            ReflectionUtils.SetemptyProperties(sourceInstance: this, targetInstance: jsonDataTarget,
+            ReflectionUtils.SetEmptyProperties(sourceInstance: this, targetInstance: jsonDataTarget,
                 sourceType: jsonDataSourceType, targetType: jsonDataTargetType);
         }
 
