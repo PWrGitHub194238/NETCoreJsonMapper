@@ -109,31 +109,31 @@ function local:Create-JsonDataSource
     [string]$jsonDataSourceTemplateClass =
 @"
 using NETCoreJsonMapper.Common.Mappings;
+using Newtonsoft.Json;
 
 namespace {0}.Mappings
 {
     /// <summary>
+    /// A sample class that represents a JSON formatted file ./JsonDataSource/Example.json.
+    /// Along with this class, a JsonDataTarget was generated.
     /// 
+    /// All data loaded from the JSON file Example.json file:
+    /// 
+    /// {
+    /// 	"ExampleProperty": "ExampleValue",
+    /// }
+    /// 
+    /// will be saved in the class properties whose name corresponds to the key names 
+    /// and object types from the specified file.
+    /// 
+    /// To make the class visible for processing, it has to extend an AJsonDataSource<JsonDataTarget>
+    /// class, where JsonDataTarget points the type of an object that represents 
+    /// the result JSON structure in a form of a class.
     /// </summary>
     public class JsonDataSource : AJsonDataSource<JsonDataTarget>
     {
-        /// <summary>
-        /// Put all properties of a generated RootObject class here.
-        /// You can set JsonDataTarget properties by the set accessor.
-        /// </summary>
-        public string ExampleProperty {
-            set {
-                jsonDataTarget.ExampleProperty =  $"{value}-generated";
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        protected override void PostProcess()
-        {
-
-        }
+		[JsonProperty()]
+        public string ExampleProperty { get; set; }
     }
 }
 "@
@@ -167,17 +167,30 @@ function local:Create-JsonDataTarget
     [string]$jsonDataTargetTemplateClass =
 @"
 using NETCoreJsonMapper.Interface.Mappings;
+using Newtonsoft.Json;
 
 namespace {0}.Mappings
 {
     /// <summary>
+    /// A sample class that represents a JSON file to be generated out of this class' instance.
+    /// Along with this class, a JsonDataSource was generated.
     /// 
+    /// Example string that will be generated ased on this class:
+    /// 
+    /// {
+    /// 	"Example-Property": "ExampleValue-generated",
+    /// }
+    /// 
+    /// Each of the resulted JSON keys has a value 
+    /// of the public property of this class enhanced by the proper JSON attribute.
+    /// A data source for all the values generated is a JsonDataSource class.
     /// </summary>
     public class JsonDataTarget : IJsonDataTarget
     {
         /// <summary>
         /// 
         /// </summary>
+        [JsonProperty("Example-Property")]
         public string ExampleProperty { get; set; }
     }
 }
