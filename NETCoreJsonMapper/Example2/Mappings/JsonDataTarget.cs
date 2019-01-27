@@ -11,10 +11,27 @@ namespace Example2.Mappings
     /// Example string that will be generated ased on this class:
     /// 
     /// {
-    /// 	"ExampleProperty": "ExampleValue",
-    /// 	"ExampleObject": {
-    /// 		"ExampleObjectProperty": "ExampleInnerValue"
-    /// 	}
+    /// 	"OuterProperty": "OuterValue",
+    /// 	"OuterObject-1": {
+    /// 		"InnerProperty": "FirstInnerValue-default"
+    /// 	},
+    /// 	"OuterObject-3": {
+    /// 		"InnerProperty": "ThirdInnerValue-default-generated-default"
+    /// 	},
+    /// 	"OuterObject-1-1": {
+    /// 		"SecondInnerProperty": 2,
+    /// 		"OuterObject": {
+    /// 			"InnerProperty": "InnerValue1-default"
+    /// 		},
+    /// 		"ChildObject": {
+    /// 			"SecondInnerProperty": 4,
+    /// 			"OuterObject": {
+    /// 				"InnerProperty": "-empty"
+    /// 			},
+    /// 			"ChildObject": null
+    /// 		}
+    /// 	},
+    /// 	"OuterObject-2": null
     /// }
     /// 
     /// Each of the resulted JSON keys has a value 
@@ -27,9 +44,15 @@ namespace Example2.Mappings
         public string OuterProperty { get; set; }
 
         [JsonProperty("OuterObject-1")]
-        public OuterObjectClass OuterObject { get; set; }
+        public OuterObjectClass FirstOuterObject { get; set; }
+
+        [JsonProperty("OuterObject-2")]
+        public OuterObjectClass SecondOuterObject { get; set; }
+
+        [JsonProperty("OuterObject-3")]
+        public OuterObjectClass ThirdOuterObject { get; set; }
 
         [JsonProperty("OuterObject-1-1")]
-        public SecondOuterObjectClass SecondOuterObject { get; set; }
+        public SecondOuterObjectClass FourthOuterObject { get; set; }
     }
 }

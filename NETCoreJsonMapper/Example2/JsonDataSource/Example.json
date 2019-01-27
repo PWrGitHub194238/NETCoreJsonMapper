@@ -1,19 +1,23 @@
 {
-	"OuterProperty": "OuterValue",
-	"OuterObject": {
-		"InnerProperty": "InnerValue"
-	},
-	"SecondOuterObject": {
-		"SecondInnerProperty": "InnerValue",
-		"OuterObject": {
-			"InnerProperty": "InnerValue"
-		},
-		"ChildObject": {
-			"SecondInnerProperty": "InnerValue",
-			"OuterObject": {
-				"InnerProperty": "InnerValue"
-			},
-			"ChildObject": null
-		}
-	}
+  "OuterProperty": "OuterValue",
+  "FirstOuterObject": {
+    "InnerProperty": "FirstInnerValue"
+  },
+  "SecondOuterObject": {
+    "InnerProperty": "SecondInnerValue"
+  },
+  "ThirdOuterObject": {
+    "InnerProperty": "ThirdInnerValue"
+  },
+  "FourthOuterObject": {
+    "SecondInnerProperty": 1,
+    "OuterObject": {
+      "InnerProperty": "InnerValue1"
+    },
+    "ChildObject": {
+      "SecondInnerProperty": 2,
+      "OuterObject": null,
+      "ChildObject": null
+    }
+  }
 }
