@@ -21,7 +21,7 @@ function global:Add-Mapper
 	[string]$targetFramework = Get-ProjectTargetFramework
 
     Remove-Mapper -ProjectName "$projectName" -RemoveOnly | Out-Null
-    dotnet new classlib `
+    dotnet new classlib "$projectName" `
         --output "$SLN_DIR\$projectName\" `
         --framework $targetFramework
 

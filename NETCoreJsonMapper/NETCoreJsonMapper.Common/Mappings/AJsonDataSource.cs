@@ -5,10 +5,11 @@ using System;
 namespace NETCoreJsonMapper.Common.Mappings
 {
     public abstract class AJsonDataSource<TJsonTarget> : IJsonDataSource<TJsonTarget>
-        where TJsonTarget : new()
+        where TJsonTarget : IJsonDataTarget, new()
     {
-        private Type jsonDataSourceType;
-        private Type jsonDataTargetType;
+        private readonly Type jsonDataSourceType;
+        private readonly Type jsonDataTargetType;
+
         protected TJsonTarget jsonDataTarget;
 
         public AJsonDataSource()
@@ -18,16 +19,10 @@ namespace NETCoreJsonMapper.Common.Mappings
             jsonDataTargetType = jsonDataTarget.GetType();
         }
 
-        protected virtual void PostProcess()
-        {
-            ReflectionUtils.SetEmptyProperties(sourceInstance: this, targetInstance: jsonDataTarget,
+        protected virtual void PostProcess() => ReflectionUtils.SetEmptyProperties(sourceInstance: this, targetInstance: jsonDataTarget,
                 sourceType: jsonDataSourceType, targetType: jsonDataTargetType);
-        }
 
-        public bool IsValid(string jsonString)
-        {
-            return ReflectionUtils.ValidateJsonStringType(jsonString: jsonString, expectedType: GetType());
-        }
+        public bool IsValid(string jsonString) => ReflectionUtils.ValidateJsonStringType(jsonString: jsonString, expectedType: GetType());
 
         protected TJsonTarget GetResult()
         {

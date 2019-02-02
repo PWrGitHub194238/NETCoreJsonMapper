@@ -1,0 +1,33 @@
+{
+  "ExampleProperty": 2.3,
+  "ExampleProperty2": 4.0,
+  "ExampleProperty3": 2,
+  "ExampleProperty4": 3,
+  "ExampleProperty5": [
+    1,
+    2,
+    3
+  ],
+  "ExampleProperty6": [
+    {
+      "MyProperty": 0
+    },
+    {
+      "MyProperty": 1
+    },
+    {
+      "MyProperty": 2
+    }
+  ],
+  "ExampleProperty7": [
+    {
+      "MyProperty": 3
+    },
+    {
+      "MyProperty": 4
+    },
+    {
+      "MyProperty": 5
+    }
+  ]
+}
