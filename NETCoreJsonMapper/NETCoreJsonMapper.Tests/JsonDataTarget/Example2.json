@@ -1,0 +1,23 @@
+{
+	"OuterProperty": "OuterValue",
+	"OuterObject-1": {
+		"InnerProperty": "FirstInnerValue-default"
+	},
+	"OuterObject-3": {
+		"InnerProperty": "ThirdInnerValue-default-generated-default"
+	},
+	"OuterObject-1-1": {
+		"SecondInnerProperty": 2,
+		"OuterObject": {
+			"InnerProperty": "InnerValue1-default"
+		},
+		"ChildObject": {
+			"SecondInnerProperty": 4,
+			"OuterObject": {
+				"InnerProperty": "-empty"
+			},
+			"ChildObject": null
+		}
+	},
+	"OuterObject-2": null
+}

@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.28516.95
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NETCoreJsonMapper", "NETCoreJsonMapper\NETCoreJsonMapper.csproj", "{67558828-1990-4020-B50D-4E7CC34100FA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NETCoreJsonMapper.Interface", "NETCoreJsonMapper.Interface\NETCoreJsonMapper.Interface.csproj", "{D5D554FA-745C-437C-BF52-048A9A8D67A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NETCoreJsonMapper.Interfaces", "NETCoreJsonMapper.Interface\NETCoreJsonMapper.Interfaces.csproj", "{D5D554FA-745C-437C-BF52-048A9A8D67A2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NETCoreJsonMapper.Common", "NETCoreJsonMapper.Common\NETCoreJsonMapper.Common.csproj", "{A402E7EE-4EE4-4DB0-8AAC-EFC4F7FEA889}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NETCoreJsonMapper.Commons", "NETCoreJsonMapper.Common\NETCoreJsonMapper.Commons.csproj", "{A402E7EE-4EE4-4DB0-8AAC-EFC4F7FEA889}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example1", "Example1\Example1.csproj", "{3EE2D23A-7C9C-40CD-833C-259DC1DFEBEC}"
 EndProject
@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example3", "Example3\Exampl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example4", "Example4\Example4.csproj", "{217209C2-23AF-46B2-A743-6D7080785EC5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NETCoreJsonMapper.Extension", "NETCoreJsonMapper.Extension\NETCoreJsonMapper.Extension.csproj", "{3F21F296-EFF3-41AB-8282-8BF0D787718E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NETCoreJsonMapper.Extensions", "NETCoreJsonMapper.Extension\NETCoreJsonMapper.Extensions.csproj", "{3F21F296-EFF3-41AB-8282-8BF0D787718E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NETCoreJsonMapper.Tests", "NETCoreJsonMapper.Tests\NETCoreJsonMapper.Tests.csproj", "{4DF94B69-4CA8-4DD4-94CE-FE2700EA6DC1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{3F21F296-EFF3-41AB-8282-8BF0D787718E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F21F296-EFF3-41AB-8282-8BF0D787718E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F21F296-EFF3-41AB-8282-8BF0D787718E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DF94B69-4CA8-4DD4-94CE-FE2700EA6DC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DF94B69-4CA8-4DD4-94CE-FE2700EA6DC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DF94B69-4CA8-4DD4-94CE-FE2700EA6DC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DF94B69-4CA8-4DD4-94CE-FE2700EA6DC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
