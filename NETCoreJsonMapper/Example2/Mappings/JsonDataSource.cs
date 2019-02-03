@@ -135,6 +135,7 @@ namespace Example2.Mappings
         [JsonObject()]
         public class SecondOuterObjectClass
         {
+            public static int counter = 0;
             private int secondInnerProperty;
 
             /// <summary>
@@ -159,13 +160,14 @@ namespace Example2.Mappings
             /// will be assigned to the property of that class with the same name by default.
             /// Each reference type property can be validated agains a null value.
             /// In this example, in case of the null value, a new object will be returned.
+            /// Be aware that by modifying getter accessor and not allow to return null, 
+            /// nested values of a given type will NOT be mapped.
             /// </summary>
             [JsonProperty()]
             public OuterObjectClass OuterObject {
-                get => outerObject ?? new OuterObjectClass("empty");
+                get => new OuterObjectClass($"{outerObject?.InnerProperty}-empty{counter++}");
                 set => outerObject = value;
             }
-
 
             /// <summary>
             /// Each nested JSON object has to be represented as a class property of a valid type.

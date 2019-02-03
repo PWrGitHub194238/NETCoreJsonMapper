@@ -1,0 +1,26 @@
+{
+  "ExampleProperty": "ExampleValue",
+  "ExampleObject": {
+    "ExampleObjectProperty": "ExampleValue"
+  },
+  "ExampleArray": [
+    "ExampleArrayValue1",
+    "ExampleArrayValue2"
+  ],
+  "ExampleObjectArray": [
+    {
+      "ExampleInnerProperty": "ExampleInnerProperty1Value0",
+      "ExampleInnerObject": {
+        "ExampleInnerProperty1": "ExampleInnerProperty1Value1",
+        "ExampleInnerProperty2": null
+      }
+    },
+    {
+      "ExampleInnerProperty": "ExampleInnerProperty2Value0",
+      "ExampleInnerObject": {
+        "ExampleInnerProperty1": "ExampleInnerProperty2Value1",
+        "ExampleInnerProperty2": "ExampleInnerProperty2Value2"
+      }
+    }
+  ]
+}

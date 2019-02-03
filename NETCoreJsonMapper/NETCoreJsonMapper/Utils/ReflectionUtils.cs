@@ -8,7 +8,7 @@ using System.Runtime.Loader;
 
 namespace NETCoreJsonMapper.Utils
 {
-    internal static class ReflectionUtils
+    public static class ReflectionUtils
     {
         private const string DLL_FILE_SEARCH_PATTERN = "*.dll";
 

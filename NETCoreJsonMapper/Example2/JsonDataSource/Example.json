@@ -16,7 +16,9 @@
     },
     "ChildObject": {
       "SecondInnerProperty": 2,
-      "OuterObject": null,
+      "OuterObject": {
+        "InnerProperty": "InnerValue2"
+      },
       "ChildObject": null
     }
   }
