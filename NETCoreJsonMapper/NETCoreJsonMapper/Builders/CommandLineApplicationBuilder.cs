@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.CommandLineUtils;
+using NETCoreJsonMapper.Properties;
 using NETCoreJsonMapper.Utils;
 using System;
-using NETCoreJsonMapper.Properties;
 using System.IO;
 using System.Linq;
 
@@ -96,7 +96,6 @@ namespace NETCoreJsonMapper.Builders
                         validationMessage = string.Format(Resources.CMD_OUTPUT_VALIDATE_ERROR_CREATE_DIR,
                             outputDirectory, e.Message);
                     }
-
                 }
             }
             return validationMessage.Equals(string.Empty);

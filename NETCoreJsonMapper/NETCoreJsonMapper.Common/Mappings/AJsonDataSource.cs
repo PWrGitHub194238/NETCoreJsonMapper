@@ -7,11 +7,9 @@ namespace NETCoreJsonMapper.Common.Mappings
     public abstract class AJsonDataSource<TJsonTarget> : IJsonDataSource<TJsonTarget>
         where TJsonTarget : IJsonDataTarget, new()
     {
+        protected TJsonTarget jsonDataTarget;
         private readonly Type jsonDataSourceType;
         private readonly Type jsonDataTargetType;
-
-        protected TJsonTarget jsonDataTarget;
-
         public AJsonDataSource()
         {
             jsonDataSourceType = GetType();
@@ -19,15 +17,18 @@ namespace NETCoreJsonMapper.Common.Mappings
             jsonDataTargetType = jsonDataTarget.GetType();
         }
 
-        protected virtual void PostProcess() => ReflectionUtils.SetEmptyProperties(sourceInstance: this, targetInstance: jsonDataTarget,
-                sourceType: jsonDataSourceType, targetType: jsonDataTargetType);
-
         public bool IsValid(string jsonString) => ReflectionUtils.ValidateJsonStringType(jsonString: jsonString, expectedType: GetType());
 
         protected TJsonTarget GetResult()
         {
             PostProcess();
             return jsonDataTarget;
+        }
+
+        protected virtual void PostProcess()
+        {
+            new SourcePropertyMapper<TJsonTarget>(this).SetEmptyProperties(targetInstance: jsonDataTarget,
+                sourceType: jsonDataSourceType, targetType: jsonDataTargetType);
         }
     }
 }

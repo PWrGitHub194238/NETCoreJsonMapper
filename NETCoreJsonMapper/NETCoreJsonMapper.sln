@@ -9,13 +9,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NETCoreJsonMapper.Interface
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NETCoreJsonMapper.Common", "NETCoreJsonMapper.Common\NETCoreJsonMapper.Common.csproj", "{A402E7EE-4EE4-4DB0-8AAC-EFC4F7FEA889}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example1", "Example1\Example1.csproj", "{3EE2D23A-7C9C-40CD-833C-259DC1DFEBEC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example1", "Example1\Example1.csproj", "{3EE2D23A-7C9C-40CD-833C-259DC1DFEBEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example2", "Example2\Example2.csproj", "{5BBAB08B-2C51-4B44-8211-AF0908A7C3D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example2", "Example2\Example2.csproj", "{5BBAB08B-2C51-4B44-8211-AF0908A7C3D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example3", "Example3\Example3.csproj", "{F545BD0B-9982-4C1F-A61B-ED6F34C87879}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example3", "Example3\Example3.csproj", "{F545BD0B-9982-4C1F-A61B-ED6F34C87879}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example4", "Example4\Example4.csproj", "{217209C2-23AF-46B2-A743-6D7080785EC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example4", "Example4\Example4.csproj", "{217209C2-23AF-46B2-A743-6D7080785EC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NETCoreJsonMapper.Extension", "NETCoreJsonMapper.Extension\NETCoreJsonMapper.Extension.csproj", "{3F21F296-EFF3-41AB-8282-8BF0D787718E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{217209C2-23AF-46B2-A743-6D7080785EC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{217209C2-23AF-46B2-A743-6D7080785EC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{217209C2-23AF-46B2-A743-6D7080785EC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F21F296-EFF3-41AB-8282-8BF0D787718E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F21F296-EFF3-41AB-8282-8BF0D787718E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F21F296-EFF3-41AB-8282-8BF0D787718E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F21F296-EFF3-41AB-8282-8BF0D787718E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

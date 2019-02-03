@@ -1,6 +1,5 @@
-using Example4.Conversions.System.Collections.Generic;
+using Example4.Wrappers.System.Collections.Generic;
 using NETCoreJsonMapper.Interface.Mappings;
-using Newtonsoft.Json;
 using System.Collections.Generic;
 using static Example4.Mappings.JsonDataSource;
 
