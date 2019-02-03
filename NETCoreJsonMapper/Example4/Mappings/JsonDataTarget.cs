@@ -55,7 +55,7 @@ namespace Example4.Mappings
         {
             public ItemTargetClass(ItemClass c)
             {
-                MyProperty = c.MyProperty;
+                MyProperty = c.MyProperty * 2;
             }
 
             public int MyProperty { get; set; }

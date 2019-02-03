@@ -124,7 +124,7 @@ namespace NETCoreJsonMapper.Common.Mappings
                     targetProperty.SetValue(targetInstance,
                         sourcePropertyValue.ToString());
                 }
-                else if (HasConverterExtensionMethod(targetInstance: targetInstance,
+                else if (HasConverterExtensionMethod(sourceInstance: dataSourceInstance,
                     targetType: targetPropertyType, resultMethod: out MethodInfo convertMethodInfo))
                 {
                     SetEmptyPropertyByConverterExtensionMethod(conversionMethod: convertMethodInfo);
@@ -155,14 +155,14 @@ namespace NETCoreJsonMapper.Common.Mappings
         private void SetEmptyPropertyByConverterExtensionMethod(MethodInfo conversionMethod)
         {
             object obj = Activator.CreateInstance(targetPropertyType);
-            conversionMethod.Invoke(null, new object[] { obj, sourcePropertyValue });
+            conversionMethod.Invoke(null, new object[] { sourcePropertyValue, obj });
             targetProperty.SetValue(targetInstance, obj);
         }
 
 
-        public bool HasConverterExtensionMethod(object targetInstance, Type targetType, out MethodInfo resultMethod)
+        public bool HasConverterExtensionMethod(object sourceInstance, Type targetType, out MethodInfo resultMethod)
         {
-            resultMethod = GetExtensionMethods(instance: targetInstance, extendedType: targetType, convertToType: sourcePropertyType);
+            resultMethod = GetExtensionMethods(instance: sourceInstance, extendedType: sourcePropertyType, convertToType: targetType);
 
             return resultMethod != null;
         }

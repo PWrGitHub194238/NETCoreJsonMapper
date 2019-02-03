@@ -17,21 +17,21 @@
       "MyProperty": 0
     },
     {
-      "MyProperty": 1
+      "MyProperty": 2
     },
     {
-      "MyProperty": 2
+      "MyProperty": 4
     }
   ],
   "ExampleProperty7": [
     {
-      "MyProperty": 3
+      "MyProperty": 6
     },
     {
-      "MyProperty": 4
+      "MyProperty": 8
     },
     {
-      "MyProperty": 5
+      "MyProperty": 10
     }
   ]
 }

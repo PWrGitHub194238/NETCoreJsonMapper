@@ -6,8 +6,8 @@ namespace Example4.Conversions.System.Collections.Generic
 {
     public static class List
     {
-        public static void Convert(this List<ItemTargetClass> target,
-            List<ItemClass> source)
+        public static void Convert(this List<ItemClass> source,
+            List<ItemTargetClass> target)
         {
             foreach (ItemClass item in source)
             {
