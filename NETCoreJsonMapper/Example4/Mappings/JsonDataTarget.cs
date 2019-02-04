@@ -8,8 +8,8 @@ namespace Example4.Mappings
     /// <summary>
     /// A sample class that represents a JSON file to be generated out of this class' instance.
     /// Along with this class, a JsonDataSource was generated.
-    /// 
-    /// Each of the resulted JSON keys has a value 
+    ///
+    /// Each of the resulted JSON keys has a value
     /// of the public property of this class enhanced by the proper JSON attribute.
     /// A data source for all the values generated is a JsonDataSource class.
     /// </summary>
@@ -27,6 +27,7 @@ namespace Example4.Mappings
             {
                 MyProperty = 2;
             }
+
             public int MyProperty { get; set; }
         }
 
@@ -38,6 +39,7 @@ namespace Example4.Mappings
             {
                 MyProperty = (int)i;
             }
+
             public int MyProperty { get; set; }
         }
 

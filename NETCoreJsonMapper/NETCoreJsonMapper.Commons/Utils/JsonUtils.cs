@@ -6,6 +6,7 @@ namespace NETCoreJsonMapper.Common.Utils
     internal class JsonUtils
     {
         private const string REGEX_JSON_KEY_MATCH_TOKEN = "JsonKey";
+
         private static readonly Regex JSON_KEY_MATCHER = new Regex($"^\\s*(?<{REGEX_JSON_KEY_MATCH_TOKEN}>[^\r\n:]+?)\\s*:",
             RegexOptions.Compiled
             | RegexOptions.Multiline);

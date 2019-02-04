@@ -1,8 +1,6 @@
 ﻿using NETCoreJsonMapper.Common.Utils;
 using NETCoreJsonMapper.Extension.System;
 using NETCoreJsonMapper.Extension.System.Reflection;
-using NETCoreJsonMapper.Interface.Mappings;
-using System;
 using System.Collections.Generic;
 using System.Reflection;
 

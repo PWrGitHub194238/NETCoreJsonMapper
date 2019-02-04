@@ -7,9 +7,9 @@ namespace Example2.Mappings
     /// <summary>
     /// A sample class that represents a JSON file to be generated out of this class' instance.
     /// Along with this class, a JsonDataSource was generated.
-    /// 
+    ///
     /// Example string that will be generated ased on this class:
-    /// 
+    ///
     /// {
     /// 	"OuterProperty": "OuterValue",
     /// 	"OuterObject-1": {
@@ -33,8 +33,8 @@ namespace Example2.Mappings
     /// 	},
     /// 	"OuterObject-2": null
     /// }
-    /// 
-    /// Each of the resulted JSON keys has a value 
+    ///
+    /// Each of the resulted JSON keys has a value
     /// of the public property of this class enhanced by the proper JSON attribute.
     /// A data source for all the values generated is a JsonDataSource class.
     /// </summary>

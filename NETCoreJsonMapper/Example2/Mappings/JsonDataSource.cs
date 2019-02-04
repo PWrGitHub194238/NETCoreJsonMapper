@@ -6,9 +6,9 @@ namespace Example2.Mappings
     /// <summary>
     /// A sample class that represents a JSON formatted file ./JsonDataSource/Example.json.
     /// Along with this class, a JsonDataTarget was generated.
-    /// 
+    ///
     /// All data loaded from the JSON file Example.json file:
-    /// 
+    ///
     /// {
     ///   "OuterProperty": "OuterValue",
     ///   "FirstOuterObject": {
@@ -34,19 +34,19 @@ namespace Example2.Mappings
     ///     }
     ///   }
     /// }
-    /// 
-    /// will be saved in the class properties whose name corresponds to the key names 
+    ///
+    /// will be saved in the class properties whose name corresponds to the key names
     /// and object types from the specified file.
-    /// 
+    ///
     /// To make the class visible for processing, it has to extend an AJsonDataSource<JsonDataTarget>
-    /// class, where JsonDataTarget points the type of an object that represents 
+    /// class, where JsonDataTarget points the type of an object that represents
     /// the result JSON structure in a form of a class.
     /// </summary>
     public class JsonDataSource : AJsonDataSource<JsonDataTarget>
     {
         /// <summary>
         /// For each key in a JSON file, generate a property with a JsonProperty attribute.
-        /// Name of each property will be matched against JsonDataTarget class and its value 
+        /// Name of each property will be matched against JsonDataTarget class and its value
         /// will be assigned to the property of that class with the same name by default.
         /// </summary>
         [JsonProperty()]
@@ -54,7 +54,7 @@ namespace Example2.Mappings
 
         /// <summary>
         /// Each nested JSON object has to be represented as a class property of a valid type.
-        /// Name of each property will be matched against JsonDataTarget class and its value 
+        /// Name of each property will be matched against JsonDataTarget class and its value
         /// will be assigned to the property of that class with the same name by default.
         /// </summary>
         [JsonProperty()]
@@ -75,7 +75,7 @@ namespace Example2.Mappings
 
         /// <summary>
         /// Each nested JSON object has to be represented as a class property of a valid type.
-        /// In a setter acessor the inner object can be further modified after assignin its default value, 
+        /// In a setter acessor the inner object can be further modified after assignin its default value,
         /// generated from the data source JSON file.
         /// </summary>
         [JsonProperty()]
@@ -91,8 +91,8 @@ namespace Example2.Mappings
         public SecondOuterObjectClass FourthOuterObject { get; set; }
 
         /// <summary>
-        /// Each of inner types has to be enhanced by a JsonObject attribute. 
-        /// Name of each nested class will be matched against JsonDataTarget class and its value 
+        /// Each of inner types has to be enhanced by a JsonObject attribute.
+        /// Name of each nested class will be matched against JsonDataTarget class and its value
         /// will be assigned to the property of that class with the same name by default recursively.
         /// </summary>
         [JsonObject()]
@@ -102,21 +102,20 @@ namespace Example2.Mappings
 
             public OuterObjectClass() : this("default")
             {
-
             }
 
             public OuterObjectClass(string exampleValue) => this.exampleValue = exampleValue;
 
             /// <summary>
-            /// 
+            ///
             /// </summary>
             private string innerProperty;
 
             /// <summary>
             /// For each key in a JSON file, generate a property with a JsonProperty attribute.
-            /// Name of each property will be matched against JsonDataTarget class and its value 
+            /// Name of each property will be matched against JsonDataTarget class and its value
             /// will be assigned to the property of that class with the same name by default.
-            /// If a value of the property is set manualy from outside, the getter accessor 
+            /// If a value of the property is set manualy from outside, the getter accessor
             /// can be used to further modified a value on top of already set value.
             /// </summary>
             [JsonProperty()]
@@ -127,8 +126,8 @@ namespace Example2.Mappings
         }
 
         /// <summary>
-        /// Each of inner types has to be enhanced by a JsonObject attribute. 
-        /// Name of each nested class will be matched against JsonDataTarget class and its value 
+        /// Each of inner types has to be enhanced by a JsonObject attribute.
+        /// Name of each nested class will be matched against JsonDataTarget class and its value
         /// will be assigned to the property of that class with the same name by default recursively.
         /// Nested types can be defined recursively as shown below.
         /// </summary>
@@ -140,10 +139,10 @@ namespace Example2.Mappings
 
             /// <summary>
             /// For each key in a JSON file, generate a property with a JsonProperty attribute.
-            /// Name of each property will be matched against JsonDataTarget class and its value 
+            /// Name of each property will be matched against JsonDataTarget class and its value
             /// will be assigned to the property of that class with the same name by default.
             /// To change the resulted JSON value of any key to a relative value,
-            /// a setter accessor has to be defined. The getter accessor will benefit from 
+            /// a setter accessor has to be defined. The getter accessor will benefit from
             /// the value stored in a private field that will not be used to generate resulted JSON.
             /// </summary>
             [JsonProperty()]
@@ -156,11 +155,11 @@ namespace Example2.Mappings
 
             /// <summary>
             /// Each nested JSON object has to be represented as a class property of a valid type.
-            /// Name of each property will be matched against JsonDataTarget class and its value 
+            /// Name of each property will be matched against JsonDataTarget class and its value
             /// will be assigned to the property of that class with the same name by default.
             /// Each reference type property can be validated agains a null value.
             /// In this example, in case of the null value, a new object will be returned.
-            /// Be aware that by modifying getter accessor and not allow to return null, 
+            /// Be aware that by modifying getter accessor and not allow to return null,
             /// nested values of a given type will NOT be mapped.
             /// </summary>
             [JsonProperty()]
@@ -171,7 +170,7 @@ namespace Example2.Mappings
 
             /// <summary>
             /// Each nested JSON object has to be represented as a class property of a valid type.
-            /// Name of each property will be matched against JsonDataTarget class and its value 
+            /// Name of each property will be matched against JsonDataTarget class and its value
             /// will be assigned to the property of that class with the same name by default.
             /// </summary>
             [JsonProperty()]

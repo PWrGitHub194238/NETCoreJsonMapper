@@ -10,6 +10,7 @@ namespace NETCoreJsonMapper.Common.Mappings
         protected TJsonTarget jsonDataTarget;
         private readonly Type jsonDataSourceType;
         private readonly Type jsonDataTargetType;
+
         public AJsonDataSource()
         {
             jsonDataSourceType = GetType();

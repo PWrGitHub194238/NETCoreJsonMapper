@@ -1,10 +1,8 @@
 ﻿using NETCoreJsonMapper.Common.Enums;
 using NETCoreJsonMapper.Common.Utils;
 using NETCoreJsonMapper.Extension.System;
-using NETCoreJsonMapper.Interface.Mappings;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -44,20 +42,23 @@ namespace NETCoreJsonMapper.Common.Mappings
                 case PropertyMapType.VALUE_TO_VALUE:
                     SetEmptyPropertyValueToValue();
                     break;
+
                 case PropertyMapType.VALUE_TO_CLASS:
                     SetEmptyPropertyValueToClass();
                     break;
+
                 case PropertyMapType.CLASS_TO_VALUE:
                     SetEmptyPropertyClassToValue();
                     break;
+
                 case PropertyMapType.CLASS_TO_CLASS:
                     SetEmptyPropertyClassToClass();
                     break;
+
                 default:
                     break;
             }
         }
-
 
         private void SetEmptyPropertyValueToValue()
         {
@@ -67,11 +68,8 @@ namespace NETCoreJsonMapper.Common.Mappings
             }
             else
             {
-
             }
         }
-
-
 
         private void SetEmptyPropertyValueToClass()
         {
@@ -95,7 +93,6 @@ namespace NETCoreJsonMapper.Common.Mappings
             }
         }
 
-
         private void SetEmptyPropertyClassToValue()
         {
             if (ReflectionUtils.IsDefault(value: targetPropertyValue, type: targetPropertyType))
@@ -106,13 +103,11 @@ namespace NETCoreJsonMapper.Common.Mappings
                 }
                 catch (Exception e)
                 {
-
                     throw e;
                 }
             }
             else
             {
-
             }
         }
 
@@ -137,7 +132,6 @@ namespace NETCoreJsonMapper.Common.Mappings
                 }
                 else if (sourcePropertyType.IsCollection() && targetPropertyType.IsCollection())
                 {
-
                     // Create list by default constructor
                     targetProperty.SetValue(targetInstance,
                         Activator.CreateInstance(targetPropertyType));
@@ -152,8 +146,6 @@ namespace NETCoreJsonMapper.Common.Mappings
                         targetPropertyType.GetMethod("Add").Invoke(targetProperty.GetValue(targetInstance), new[] { obj });
                         // recurcive execution
                         ReflectionUtils.InvokeSetEmptyProperties(sourceInstance: item, targetInstance: obj);
-
-
                     }
                 }
                 else if (targetPropertyType.IsAssignableFrom(sourcePropertyType))
@@ -174,7 +166,6 @@ namespace NETCoreJsonMapper.Common.Mappings
             conversionMethod.Invoke(null, new object[] { sourcePropertyValue, obj });
             targetProperty.SetValue(targetInstance, obj);
         }
-
 
         public bool HasConverterExtensionMethod(object sourceInstance, Type targetType, out MethodInfo resultMethod)
         {

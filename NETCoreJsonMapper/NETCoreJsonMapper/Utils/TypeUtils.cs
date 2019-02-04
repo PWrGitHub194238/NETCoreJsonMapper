@@ -1,7 +1,5 @@
 ﻿using NETCoreJsonMapper.Interface.Mappings;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace NETCoreJsonMapper.Utils
 {
@@ -14,6 +12,7 @@ namespace NETCoreJsonMapper.Utils
         {
             return IJsonDataTargetType.IsAssignableFrom(type);
         }
+
         internal static bool IsAssignableFromGenericIJsonDataSource(Type type, Type innerType)
         {
             return ReflectionUtils.MakeGenericIJsonDataSource(innerType: innerType)
