@@ -9,12 +9,6 @@ namespace Example4.Mappings
     /// A sample class that represents a JSON file to be generated out of this class' instance.
     /// Along with this class, a JsonDataSource was generated.
     /// 
-    /// Example string that will be generated ased on this class:
-    /// 
-    /// {
-    /// 	"Example-Property": "ExampleValue-generated",
-    /// }
-    /// 
     /// Each of the resulted JSON keys has a value 
     /// of the public property of this class enhanced by the proper JSON attribute.
     /// A data source for all the values generated is a JsonDataSource class.

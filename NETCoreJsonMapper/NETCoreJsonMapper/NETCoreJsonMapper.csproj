@@ -20,11 +20,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\NETCoreJsonMapper.Interfaces\NETCoreJsonMapper.Interfaces.csproj" />
     <ProjectReference Include="..\Example1\Example1.csproj" />
     <ProjectReference Include="..\Example2\Example2.csproj" />
     <ProjectReference Include="..\Example3\Example3.csproj" />
     <ProjectReference Include="..\Example4\Example4.csproj" />
-    <ProjectReference Include="..\NETCoreJsonMapper.Interface\NETCoreJsonMapper.Interfaces.csproj" />
+    <ProjectReference Include="..\Example5\Example5.csproj" />
   </ItemGroup>
 
   <ItemGroup>

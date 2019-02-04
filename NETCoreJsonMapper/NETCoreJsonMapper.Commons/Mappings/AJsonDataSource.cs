@@ -27,8 +27,7 @@ namespace NETCoreJsonMapper.Common.Mappings
 
         protected virtual void PostProcess()
         {
-            new SourcePropertyMapper<TJsonTarget>(this).SetEmptyProperties(targetInstance: jsonDataTarget,
-                sourceType: jsonDataSourceType, targetType: jsonDataTargetType);
+            ReflectionUtils.InvokeSetEmptyProperties(sourceInstance: this, targetInstance: jsonDataTarget);
         }
     }
 }

@@ -1,0 +1,13 @@
+{
+  "ExampleList1": [
+    {
+      "MyProperty": 0
+    },
+    {
+      "MyProperty": 1
+    },
+    {
+      "MyProperty": 2
+    }
+  ]
+}

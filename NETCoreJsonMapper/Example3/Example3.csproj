@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\NETCoreJsonMapper.Common\NETCoreJsonMapper.Commons.csproj" />
-    <ProjectReference Include="..\NETCoreJsonMapper.Interface\NETCoreJsonMapper.Interfaces.csproj" />
+    <ProjectReference Include="..\NETCoreJsonMapper.Commons\NETCoreJsonMapper.Commons.csproj" />
+    <ProjectReference Include="..\NETCoreJsonMapper.Interfaces\NETCoreJsonMapper.Interfaces.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

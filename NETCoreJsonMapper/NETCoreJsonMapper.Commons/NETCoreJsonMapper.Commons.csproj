@@ -9,8 +9,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NETCoreJsonMapper.Extension\NETCoreJsonMapper.Extensions.csproj" />
-    <ProjectReference Include="..\NETCoreJsonMapper.Interface\NETCoreJsonMapper.Interfaces.csproj" />
+    <ProjectReference Include="..\NETCoreJsonMapper.Extensions\NETCoreJsonMapper.Extensions.csproj" />
+    <ProjectReference Include="..\NETCoreJsonMapper.Interfaces\NETCoreJsonMapper.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>

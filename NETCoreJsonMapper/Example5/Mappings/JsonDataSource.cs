@@ -2,7 +2,7 @@ using NETCoreJsonMapper.Common.Mappings;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace Example4.Mappings
+namespace Example5.Mappings
 {
     /// <summary>
     /// A sample class that represents a JSON formatted file ./JsonDataSource/Example.json.
@@ -18,22 +18,7 @@ namespace Example4.Mappings
     public class JsonDataSource : AJsonDataSource<JsonDataTarget>
     {
         [JsonProperty()]
-        public double ExampleProperty { get; set; }
-
-        [JsonProperty()]
-        public double ExampleProperty2 { get; set; }
-
-        [JsonProperty()]
-        public int ExampleProperty3 { get; set; }
-
-        [JsonProperty()]
-        public long ExampleProperty4 { get; set; }
-
-        [JsonProperty()]
-        public List<int> ExampleProperty5 { get; set; }
-
-        [JsonProperty()]
-        public List<ItemClass> ExampleProperty6 { get; set; }
+        public List<ItemClass> ExampleList1 { get; set; }
 
         [JsonObject()]
         public class ItemClass
@@ -41,8 +26,5 @@ namespace Example4.Mappings
             [JsonProperty()]
             public int MyProperty { get; set; }
         }
-
-        [JsonProperty()]
-        public List<ItemClass> ExampleProperty7 { get; set; }
     }
 }

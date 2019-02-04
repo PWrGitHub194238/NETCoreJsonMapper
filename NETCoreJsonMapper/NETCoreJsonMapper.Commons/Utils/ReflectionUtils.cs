@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using NETCoreJsonMapper.Common.Mappings;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -82,6 +83,20 @@ namespace NETCoreJsonMapper.Common.Utils
         {
             return Attribute.IsDefined(element: property,
                 attributeType: typeof(JsonPropertyAttribute));
+        }
+
+        internal static void InvokeSetEmptyProperties(object sourceInstance, object targetInstance)
+        {
+            Type sourceType = sourceInstance.GetType();
+            Type targetType = targetInstance.GetType();
+            Type sourcePropertyMapperType = typeof(SourcePropertyMapper<,>).MakeGenericType(sourceType, targetType);
+            MethodInfo setEmptyPropertiesMethodInfo = sourcePropertyMapperType.GetMethod(name: "SetEmptyProperties",
+                bindingAttr: BindingFlags.Instance | BindingFlags.NonPublic,
+                binder: Type.DefaultBinder, types: new Type[] { targetType },
+                modifiers: null);
+            setEmptyPropertiesMethodInfo.Invoke(
+                Activator.CreateInstance(type: sourcePropertyMapperType, args: sourceInstance),
+                new object[] { targetInstance });
         }
     }
 }

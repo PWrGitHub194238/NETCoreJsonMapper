@@ -3,17 +3,18 @@ using NETCoreJsonMapper.Common.Utils;
 using NETCoreJsonMapper.Extension.System;
 using NETCoreJsonMapper.Interface.Mappings;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
 namespace NETCoreJsonMapper.Common.Mappings
 {
-    internal class SourcePropertySetter<TJsonTarget>
-        where TJsonTarget : IJsonDataTarget, new()
+    internal class SourcePropertySetter<TJsonSource, TJsonTarget>
     {
-        private AJsonDataSource<TJsonTarget> dataSourceInstance;
-        private object targetInstance;
+        private TJsonSource dataSourceInstance;
+        private TJsonTarget targetInstance;
 
         private readonly PropertyInfo sourceProperty;
         private readonly PropertyInfo targetProperty;
@@ -22,8 +23,8 @@ namespace NETCoreJsonMapper.Common.Mappings
         private object sourcePropertyValue;
         private object targetPropertyValue;
 
-        public SourcePropertySetter(AJsonDataSource<TJsonTarget> dataSourceInstance,
-            PropertyInfo sourceProperty, object targetInstance, PropertyInfo targetProperty)
+        public SourcePropertySetter(TJsonSource dataSourceInstance,
+            PropertyInfo sourceProperty, TJsonTarget targetInstance, PropertyInfo targetProperty)
         {
             this.dataSourceInstance = dataSourceInstance;
             this.targetInstance = targetInstance;
@@ -136,9 +137,24 @@ namespace NETCoreJsonMapper.Common.Mappings
                 }
                 else if (sourcePropertyType.IsCollection() && targetPropertyType.IsCollection())
                 {
+
                     // Create list by default constructor
+                    targetProperty.SetValue(targetInstance,
+                        Activator.CreateInstance(targetPropertyType));
+
                     // Create default object add to list
-                    // recurcive execution
+                    Type sourceType = sourcePropertyType.GenericTypeArguments.First();
+                    Type targetType = targetPropertyType.GenericTypeArguments.First();
+
+                    foreach (var item in (IEnumerable)sourceProperty.GetValue(dataSourceInstance, null))
+                    {
+                        var obj = Activator.CreateInstance(targetType, item);
+                        targetPropertyType.GetMethod("Add").Invoke(targetProperty.GetValue(targetInstance), new[] { obj });
+                        // recurcive execution
+                        ReflectionUtils.InvokeSetEmptyProperties(sourceInstance: item, targetInstance: obj);
+
+
+                    }
                 }
                 else if (targetPropertyType.IsAssignableFrom(sourcePropertyType))
                 {

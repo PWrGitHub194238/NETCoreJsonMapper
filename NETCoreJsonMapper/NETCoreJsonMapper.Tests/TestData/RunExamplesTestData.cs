@@ -49,6 +49,13 @@ namespace NETCoreJsonMapper.Tests
                 Path.Combine(AssemblyDirectory,
                     @"..\..\..\JsonDataTarget\Example4\Example.json")
             };
+            yield return new object[] {
+                Path.Combine(AssemblyDirectory,
+                    @"..\..\..\..\Example5\JsonDataSource\Example.json"),
+                typeof(Example5.Mappings.JsonDataSource),
+                Path.Combine(AssemblyDirectory,
+                    @"..\..\..\JsonDataTarget\Example5\Example.json")
+            };
         }
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();

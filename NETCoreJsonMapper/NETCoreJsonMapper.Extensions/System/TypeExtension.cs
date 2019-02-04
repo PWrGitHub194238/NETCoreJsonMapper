@@ -1,5 +1,7 @@
 ﻿using NETCoreJsonMapper.Extension.System.Reflection;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
@@ -22,8 +24,14 @@ namespace NETCoreJsonMapper.Extension.System
 
         public static bool IsCollection(this Type type)
         {
-            //type.IsAssignableFrom(typeof(ICollection<object>));
-            return false;
+            bool result = type.IsGenericType;
+            result &= type.GenericTypeArguments.Count() == 1;
+            if (result)
+            {
+                Type t = typeof(ICollection<>).MakeGenericType(type.GenericTypeArguments);
+                result &= t.IsAssignableFrom(type);
+            }
+            return result;
         }
 
         public static bool IsStringType(this Type type)
