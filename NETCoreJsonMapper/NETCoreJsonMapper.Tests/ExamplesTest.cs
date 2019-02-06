@@ -1,3 +1,4 @@
+using NETCoreJsonMapper.Builders;
 using NETCoreJsonMapper.Utils;
 using System;
 using System.IO;
@@ -25,8 +26,8 @@ namespace NETCoreJsonMapper.Tests
             }
 
             // Act
-            string outputJsonString = ReflectionUtils.InvokeJsonMapping(jsonString: jsonDataSourceString,
-                        deserializationType: jsonDataSourceType);
+            string outputJsonString = new JsonMapper(jsonDataSourceString)
+                .InvokeJsonMapping(deserializationType: jsonDataSourceType);
 
             // Assert
             Assert.Equal(

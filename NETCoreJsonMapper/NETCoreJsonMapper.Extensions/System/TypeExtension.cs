@@ -23,14 +23,10 @@ namespace NETCoreJsonMapper.Extension.System
 
         public static bool IsCollection(this Type type)
         {
-            bool result = type.IsGenericType;
-            result &= type.GenericTypeArguments.Count() == 1;
-            if (result)
-            {
-                Type t = typeof(ICollection<>).MakeGenericType(type.GenericTypeArguments);
-                result &= t.IsAssignableFrom(type);
-            }
-            return result;
+            return type.IsGenericType
+                && type.GenericTypeArguments.Count() == 1
+                && typeof(ICollection<>).MakeGenericType(type.GenericTypeArguments)
+                    .IsAssignableFrom(type);
         }
 
         public static bool IsStringType(this Type type)

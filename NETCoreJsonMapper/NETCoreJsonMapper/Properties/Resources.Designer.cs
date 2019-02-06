@@ -88,6 +88,15 @@ namespace NETCoreJsonMapper.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No input parameter has been defined..
+        /// </summary>
+        internal static string CMD_INPUT_VALIDATE_NO_INPUT {
+            get {
+                return ResourceManager.GetString("CMD_INPUT_VALIDATE_NO_INPUT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to A full path to the directory where all outputed JOSN formatted files will be saved..
         /// </summary>
         internal static string CMD_OUTPUT_DESC {
@@ -111,6 +120,123 @@ namespace NETCoreJsonMapper.Properties {
         internal static string CMD_OUTPUT_VALIDATE_ERROR_NOT_SET {
             get {
                 return ResourceManager.GetString("CMD_OUTPUT_VALIDATE_ERROR_NOT_SET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Validating for a directory existance on path: &apos;{0}&apos;..
+        /// </summary>
+        internal static string LOG_VERBOSE_CMD_LINE_INPUT_OPTION_PARAM_VALIDATION {
+            get {
+                return ResourceManager.GetString("LOG_VERBOSE_CMD_LINE_INPUT_OPTION_PARAM_VALIDATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start validation for input parameters: &apos;{0}&apos;..
+        /// </summary>
+        internal static string LOG_VERBOSE_CMD_LINE_INPUT_OPTION_VALIDATION {
+            get {
+                return ResourceManager.GetString("LOG_VERBOSE_CMD_LINE_INPUT_OPTION_VALIDATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Application has been started with the following input: &apos;{0}&apos; and output: &apos;{1}&apos; parameters..
+        /// </summary>
+        internal static string LOG_VERBOSE_CMD_LINE_OPTIONS {
+            get {
+                return ResourceManager.GetString("LOG_VERBOSE_CMD_LINE_OPTIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Directory on a given path: &apos;{0}&apos; does not exists. Attempt to create one..
+        /// </summary>
+        internal static string LOG_VERBOSE_CMD_LINE_OUTPUT_NOT_EXISTS_VALIDATION {
+            get {
+                return ResourceManager.GetString("LOG_VERBOSE_CMD_LINE_OUTPUT_NOT_EXISTS_VALIDATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start validation for output parameters: &apos;{0}&apos;..
+        /// </summary>
+        internal static string LOG_VERBOSE_CMD_LINE_OUTPUT_OPTION_VALIDATION {
+            get {
+                return ResourceManager.GetString("LOG_VERBOSE_CMD_LINE_OUTPUT_OPTION_VALIDATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A program could not start because of command line parameters validation error: &apos;{0}&apos;..
+        /// </summary>
+        internal static string LOG_VERBOSE_CMD_LINE_VALIDATION_SUMMARY {
+            get {
+                return ResourceManager.GetString("LOG_VERBOSE_CMD_LINE_VALIDATION_SUMMARY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A JSON file with a name: &apos;{0}&apos; within a given directory: &apos;{1}&apos; is found and will be processed..
+        /// </summary>
+        internal static string LOG_VERBOSE_CMD_LINE_YIELD_JSON_SOURCE_FILE_PATH {
+            get {
+                return ResourceManager.GetString("LOG_VERBOSE_CMD_LINE_YIELD_JSON_SOURCE_FILE_PATH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Giving a list of JSON files: &apos;{0}&apos;, the application will try to parse each one against the given class type: &apos;{1}&apos; and store results in the given output directory: &apos;{2}&apos;..
+        /// </summary>
+        internal static string LOG_VERBOSE_STARTUP_PARSE_FOR_SOURCE_JSON_CLASS_TYPE {
+            get {
+                return ResourceManager.GetString("LOG_VERBOSE_STARTUP_PARSE_FOR_SOURCE_JSON_CLASS_TYPE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Locating types within a local assembly set that implements the IJsonDataSource&lt;&gt; interface and are suitable for a given type: &apos;{0}&apos;. Local assemblies are stored within the same directory as the main NETCoreJsonMapper assembly..
+        /// </summary>
+        internal static string LOG_VERBOSE_STARTUP_SCAN_FOR_SOURCE_JSON_CLASS_TYPE {
+            get {
+                return ResourceManager.GetString("LOG_VERBOSE_STARTUP_SCAN_FOR_SOURCE_JSON_CLASS_TYPE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Locating types within a local assembly set that implements the IJsonDataTarget interface. Local assemblies are stored within the same directory as the main NETCoreJsonMapper assembly..
+        /// </summary>
+        internal static string LOG_VERBOSE_STARTUP_SCAN_FOR_TARGET_JSON_CLASS_TYPE {
+            get {
+                return ResourceManager.GetString("LOG_VERBOSE_STARTUP_SCAN_FOR_TARGET_JSON_CLASS_TYPE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Try to parse a JSON data from the file on the path: &apos;{0}&apos;..
+        /// </summary>
+        internal static string LOG_VERBOSE_TRY_PARSE_JSON_FROM_PATH {
+            get {
+                return ResourceManager.GetString("LOG_VERBOSE_TRY_PARSE_JSON_FROM_PATH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The JSON data from the file on the path: &apos;{0}&apos; matches the definition of the class: &apos;{1}&apos; and will be processed..
+        /// </summary>
+        internal static string LOG_VERBOSE_TRY_PARSE_JSON_FROM_PATH_MATCH {
+            get {
+                return ResourceManager.GetString("LOG_VERBOSE_TRY_PARSE_JSON_FROM_PATH_MATCH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The JSON data from the file on the path: &apos;{0}&apos; does NOT match the definition of the class: &apos;{1}&apos;..
+        /// </summary>
+        internal static string LOG_VERBOSE_TRY_PARSE_JSON_FROM_PATH_NOT_MATCH {
+            get {
+                return ResourceManager.GetString("LOG_VERBOSE_TRY_PARSE_JSON_FROM_PATH_NOT_MATCH", resourceCulture);
             }
         }
     }

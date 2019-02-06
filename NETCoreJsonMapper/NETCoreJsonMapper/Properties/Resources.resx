@@ -126,6 +126,9 @@
   <data name="CMD_INPUT_VALIDATE_ERROR_NOT_EXIST" xml:space="preserve">
     <value>The given input directory: '{0}' does not exists.\n</value>
   </data>
+  <data name="CMD_INPUT_VALIDATE_NO_INPUT" xml:space="preserve">
+    <value>No input parameter has been defined.</value>
+  </data>
   <data name="CMD_OUTPUT_DESC" xml:space="preserve">
     <value>A full path to the directory where all outputed JOSN formatted files will be saved.</value>
   </data>
@@ -134,5 +137,44 @@
   </data>
   <data name="CMD_OUTPUT_VALIDATE_ERROR_NOT_SET" xml:space="preserve">
     <value>No output directory was defined.</value>
+  </data>
+  <data name="LOG_VERBOSE_CMD_LINE_INPUT_OPTION_PARAM_VALIDATION" xml:space="preserve">
+    <value>Validating for a directory existance on path: '{0}'.</value>
+  </data>
+  <data name="LOG_VERBOSE_CMD_LINE_INPUT_OPTION_VALIDATION" xml:space="preserve">
+    <value>Start validation for input parameters: '{0}'.</value>
+  </data>
+  <data name="LOG_VERBOSE_CMD_LINE_OPTIONS" xml:space="preserve">
+    <value>Application has been started with the following input: '{0}' and output: '{1}' parameters.</value>
+  </data>
+  <data name="LOG_VERBOSE_CMD_LINE_OUTPUT_NOT_EXISTS_VALIDATION" xml:space="preserve">
+    <value>Directory on a given path: '{0}' does not exists. Attempt to create one.</value>
+  </data>
+  <data name="LOG_VERBOSE_CMD_LINE_OUTPUT_OPTION_VALIDATION" xml:space="preserve">
+    <value>Start validation for output parameters: '{0}'.</value>
+  </data>
+  <data name="LOG_VERBOSE_CMD_LINE_VALIDATION_SUMMARY" xml:space="preserve">
+    <value>A program could not start because of command line parameters validation error: '{0}'.</value>
+  </data>
+  <data name="LOG_VERBOSE_CMD_LINE_YIELD_JSON_SOURCE_FILE_PATH" xml:space="preserve">
+    <value>A JSON file with a name: '{0}' within a given directory: '{1}' is found and will be processed.</value>
+  </data>
+  <data name="LOG_VERBOSE_STARTUP_PARSE_FOR_SOURCE_JSON_CLASS_TYPE" xml:space="preserve">
+    <value>Giving a list of JSON files: '{0}', the application will try to parse each one against the given class type: '{1}' and store results in the given output directory: '{2}'.</value>
+  </data>
+  <data name="LOG_VERBOSE_STARTUP_SCAN_FOR_SOURCE_JSON_CLASS_TYPE" xml:space="preserve">
+    <value>Locating types within a local assembly set that implements the IJsonDataSource&lt;&gt; interface and are suitable for a given type: '{0}'. Local assemblies are stored within the same directory as the main NETCoreJsonMapper assembly.</value>
+  </data>
+  <data name="LOG_VERBOSE_STARTUP_SCAN_FOR_TARGET_JSON_CLASS_TYPE" xml:space="preserve">
+    <value>Locating types within a local assembly set that implements the IJsonDataTarget interface. Local assemblies are stored within the same directory as the main NETCoreJsonMapper assembly.</value>
+  </data>
+  <data name="LOG_VERBOSE_TRY_PARSE_JSON_FROM_PATH" xml:space="preserve">
+    <value>Try to parse a JSON data from the file on the path: '{0}'.</value>
+  </data>
+  <data name="LOG_VERBOSE_TRY_PARSE_JSON_FROM_PATH_MATCH" xml:space="preserve">
+    <value>The JSON data from the file on the path: '{0}' matches the definition of the class: '{1}' and will be processed.</value>
+  </data>
+  <data name="LOG_VERBOSE_TRY_PARSE_JSON_FROM_PATH_NOT_MATCH" xml:space="preserve">
+    <value>The JSON data from the file on the path: '{0}' does NOT match the definition of the class: '{1}'.</value>
   </data>
 </root>

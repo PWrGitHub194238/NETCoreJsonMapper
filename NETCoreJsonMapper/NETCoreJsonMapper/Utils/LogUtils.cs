@@ -4,9 +4,10 @@ using System;
 
 namespace NETCoreJsonMapper.Utils
 {
-    internal static class LogUtils
+    public static class LogUtils
     {
-        internal static readonly Logger logger = new LoggerConfiguration()
+        public static readonly Logger Logger = new LoggerConfiguration()
+            .MinimumLevel.Verbose()
             .WriteTo.File($"{DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss")}consoleapp.log")
             .CreateLogger();
     }

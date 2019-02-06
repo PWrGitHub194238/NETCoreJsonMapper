@@ -11,14 +11,13 @@ namespace NETCoreJsonMapper.Common.Mappings
 {
     internal class SourcePropertySetter<TJsonSource, TJsonTarget>
     {
-        private TJsonSource dataSourceInstance;
-        private TJsonTarget targetInstance;
-
         private readonly PropertyInfo sourceProperty;
-        private readonly PropertyInfo targetProperty;
         private readonly Type sourcePropertyType;
+        private readonly PropertyInfo targetProperty;
         private readonly Type targetPropertyType;
+        private TJsonSource dataSourceInstance;
         private object sourcePropertyValue;
+        private TJsonTarget targetInstance;
         private object targetPropertyValue;
 
         public SourcePropertySetter(TJsonSource dataSourceInstance,
@@ -33,6 +32,22 @@ namespace NETCoreJsonMapper.Common.Mappings
             targetPropertyType = targetProperty.PropertyType;
             sourcePropertyValue = sourceProperty.GetValue(dataSourceInstance);
             targetPropertyValue = targetProperty.GetValue(targetInstance);
+        }
+
+        public PropertyMapType GetPropertyMapType(Type sourceType, Type targetType) =>
+            sourceType.IsValueType
+                ? targetType.IsValueType
+                    ? PropertyMapType.VALUE_TO_VALUE
+                    : PropertyMapType.VALUE_TO_CLASS
+                : targetType.IsValueType
+                    ? PropertyMapType.CLASS_TO_VALUE
+                    : PropertyMapType.CLASS_TO_CLASS;
+
+        public bool HasConverterExtensionMethod(object sourceInstance, Type targetType, out MethodInfo resultMethod)
+        {
+            resultMethod = GetExtensionMethods(instance: sourceInstance, extendedType: sourcePropertyType, convertToType: targetType);
+
+            return resultMethod != null;
         }
 
         public void SetEmptyProperty()
@@ -60,18 +75,36 @@ namespace NETCoreJsonMapper.Common.Mappings
             }
         }
 
-        private void SetEmptyPropertyValueToValue()
+        private MethodInfo GetExtensionMethod(Type[] types, Type extendedType, Type convertToType)
         {
-            if (ReflectionUtils.IsDefault(value: targetPropertyValue, type: targetPropertyType))
-            {
-                targetProperty.SetValue(targetInstance, sourcePropertyValue);
-            }
-            else
-            {
-            }
+            return types.SelectMany(t => t.GetMethods(BindingFlags.Static | BindingFlags.Public))
+                .Where(m => IsConverterExtensionMethod(method: m, extendedType: extendedType, convertToType: convertToType))
+                .FirstOrDefault();
         }
 
-        private void SetEmptyPropertyValueToClass()
+        private MethodInfo GetExtensionMethods(object instance, Type extendedType, Type convertToType)
+        {
+            return GetExtensionMethod(types: instance.GetType().Assembly.GetTypes(),
+                extendedType: extendedType, convertToType: convertToType);
+        }
+
+        private bool IsConverterExtensionMethod(MethodInfo method, Type extendedType, Type convertToType)
+        {
+            ParameterInfo[] parameters = method.GetParameters();
+            return parameters.Count().Equals(2)
+                && Attribute.IsDefined(element: method, attributeType: typeof(ExtensionAttribute))
+                && parameters.First().ParameterType.Equals(extendedType)
+                && parameters.Skip(1).First().ParameterType.Equals(convertToType);
+        }
+
+        private void SetEmptyPropertyByConverterExtensionMethod(MethodInfo conversionMethod)
+        {
+            object obj = Activator.CreateInstance(targetPropertyType);
+            conversionMethod.Invoke(null, new object[] { sourcePropertyValue, obj });
+            targetProperty.SetValue(targetInstance, obj);
+        }
+
+        private void SetEmptyPropertyClassToClass()
         {
             if (ReflectionUtils.IsDefault(value: targetPropertyValue, type: targetPropertyType))
             {
@@ -80,10 +113,23 @@ namespace NETCoreJsonMapper.Common.Mappings
                     targetProperty.SetValue(targetInstance,
                         sourcePropertyValue.ToString());
                 }
+                else if (HasConverterExtensionMethod(sourceInstance: dataSourceInstance,
+                    targetType: targetPropertyType, resultMethod: out MethodInfo convertMethodInfo))
+                {
+                    SetEmptyPropertyByConverterExtensionMethod(conversionMethod: convertMethodInfo);
+                }
                 else if (targetPropertyType.HasCloneConstructor(cloneToParameterType: sourcePropertyType))
                 {
                     targetProperty.SetValue(targetInstance,
                         Activator.CreateInstance(targetPropertyType, sourcePropertyValue));
+                }
+                else if (sourcePropertyType.IsCollection() && targetPropertyType.IsCollection())
+                {
+                    SetEmptyPropertyListToList();
+                }
+                else if (targetPropertyType.IsAssignableFrom(sourcePropertyType))
+                {
+                    targetProperty.SetValue(targetInstance, sourcePropertyValue);
                 }
                 else
                 {
@@ -111,7 +157,26 @@ namespace NETCoreJsonMapper.Common.Mappings
             }
         }
 
-        private void SetEmptyPropertyClassToClass()
+        private void SetEmptyPropertyListToList()
+        {
+            // Create list by default constructor
+            targetProperty.SetValue(targetInstance,
+                Activator.CreateInstance(targetPropertyType));
+
+            foreach (object sourceListElement in (IEnumerable)sourceProperty.GetValue(dataSourceInstance, null))
+            {
+                object targetListElement = Activator.CreateInstance(
+                    targetPropertyType.GenericTypeArguments.First(),
+                    sourceListElement);
+                targetPropertyType.GetMethod("Add")
+                    .Invoke(targetProperty.GetValue(targetInstance),
+                        new[] { targetListElement });
+                ReflectionUtils.InvokeSetEmptyProperties(sourceInstance: sourceListElement,
+                    targetInstance: targetListElement);
+            }
+        }
+
+        private void SetEmptyPropertyValueToClass()
         {
             if (ReflectionUtils.IsDefault(value: targetPropertyValue, type: targetPropertyType))
             {
@@ -120,37 +185,10 @@ namespace NETCoreJsonMapper.Common.Mappings
                     targetProperty.SetValue(targetInstance,
                         sourcePropertyValue.ToString());
                 }
-                else if (HasConverterExtensionMethod(sourceInstance: dataSourceInstance,
-                    targetType: targetPropertyType, resultMethod: out MethodInfo convertMethodInfo))
-                {
-                    SetEmptyPropertyByConverterExtensionMethod(conversionMethod: convertMethodInfo);
-                }
                 else if (targetPropertyType.HasCloneConstructor(cloneToParameterType: sourcePropertyType))
                 {
                     targetProperty.SetValue(targetInstance,
                         Activator.CreateInstance(targetPropertyType, sourcePropertyValue));
-                }
-                else if (sourcePropertyType.IsCollection() && targetPropertyType.IsCollection())
-                {
-                    // Create list by default constructor
-                    targetProperty.SetValue(targetInstance,
-                        Activator.CreateInstance(targetPropertyType));
-
-                    // Create default object add to list
-                    Type sourceType = sourcePropertyType.GenericTypeArguments.First();
-                    Type targetType = targetPropertyType.GenericTypeArguments.First();
-
-                    foreach (var item in (IEnumerable)sourceProperty.GetValue(dataSourceInstance, null))
-                    {
-                        var obj = Activator.CreateInstance(targetType, item);
-                        targetPropertyType.GetMethod("Add").Invoke(targetProperty.GetValue(targetInstance), new[] { obj });
-                        // recurcive execution
-                        ReflectionUtils.InvokeSetEmptyProperties(sourceInstance: item, targetInstance: obj);
-                    }
-                }
-                else if (targetPropertyType.IsAssignableFrom(sourcePropertyType))
-                {
-                    targetProperty.SetValue(targetInstance, sourcePropertyValue);
                 }
                 else
                 {
@@ -160,49 +198,15 @@ namespace NETCoreJsonMapper.Common.Mappings
             }
         }
 
-        private void SetEmptyPropertyByConverterExtensionMethod(MethodInfo conversionMethod)
+        private void SetEmptyPropertyValueToValue()
         {
-            object obj = Activator.CreateInstance(targetPropertyType);
-            conversionMethod.Invoke(null, new object[] { sourcePropertyValue, obj });
-            targetProperty.SetValue(targetInstance, obj);
+            if (ReflectionUtils.IsDefault(value: targetPropertyValue, type: targetPropertyType))
+            {
+                targetProperty.SetValue(targetInstance, sourcePropertyValue);
+            }
+            else
+            {
+            }
         }
-
-        public bool HasConverterExtensionMethod(object sourceInstance, Type targetType, out MethodInfo resultMethod)
-        {
-            resultMethod = GetExtensionMethods(instance: sourceInstance, extendedType: sourcePropertyType, convertToType: targetType);
-
-            return resultMethod != null;
-        }
-
-        private MethodInfo GetExtensionMethods(object instance, Type extendedType, Type convertToType)
-        {
-            return GetExtensionMethod(types: instance.GetType().Assembly.GetTypes(),
-                extendedType: extendedType, convertToType: convertToType);
-        }
-
-        private MethodInfo GetExtensionMethod(Type[] types, Type extendedType, Type convertToType)
-        {
-            return types.SelectMany(t => t.GetMethods(BindingFlags.Static | BindingFlags.Public))
-                .Where(m => IsConverterExtensionMethod(method: m, extendedType: extendedType, convertToType: convertToType))
-                .FirstOrDefault();
-        }
-
-        private bool IsConverterExtensionMethod(MethodInfo method, Type extendedType, Type convertToType)
-        {
-            ParameterInfo[] parameters = method.GetParameters();
-            return parameters.Count().Equals(2)
-                && Attribute.IsDefined(element: method, attributeType: typeof(ExtensionAttribute))
-                && parameters.First().ParameterType.Equals(extendedType)
-                && parameters.Skip(1).First().ParameterType.Equals(convertToType);
-        }
-
-        public PropertyMapType GetPropertyMapType(Type sourceType, Type targetType) =>
-            sourceType.IsValueType
-                ? targetType.IsValueType
-                    ? PropertyMapType.VALUE_TO_VALUE
-                    : PropertyMapType.VALUE_TO_CLASS
-                : targetType.IsValueType
-                    ? PropertyMapType.CLASS_TO_VALUE
-                    : PropertyMapType.CLASS_TO_CLASS;
     }
 }
