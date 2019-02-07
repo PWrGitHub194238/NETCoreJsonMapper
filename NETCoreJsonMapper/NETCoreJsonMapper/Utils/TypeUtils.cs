@@ -1,4 +1,4 @@
-﻿using NETCoreJsonMapper.Interface.Mappings;
+﻿using NETCoreJsonMapper.Interfaces.Mappings;
 using System;
 
 namespace NETCoreJsonMapper.Utils

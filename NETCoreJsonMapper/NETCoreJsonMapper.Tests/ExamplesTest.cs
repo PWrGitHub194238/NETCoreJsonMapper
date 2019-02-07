@@ -1,5 +1,4 @@
 using NETCoreJsonMapper.Builders;
-using NETCoreJsonMapper.Utils;
 using System;
 using System.IO;
 using System.Text.RegularExpressions;

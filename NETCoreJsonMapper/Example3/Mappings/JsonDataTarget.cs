@@ -1,4 +1,4 @@
-using NETCoreJsonMapper.Interface.Mappings;
+using NETCoreJsonMapper.Interfaces.Mappings;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using static Example3.Mappings.JsonDataSource;

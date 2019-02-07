@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Reflection;
 
-namespace NETCoreJsonMapper.Extension.System.Reflection
+namespace NETCoreJsonMapper.Extensions.System.Reflection
 {
     public static class MethodBaseExtension
     {

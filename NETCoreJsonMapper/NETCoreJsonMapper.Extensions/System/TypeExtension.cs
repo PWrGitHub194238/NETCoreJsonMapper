@@ -1,10 +1,10 @@
-﻿using NETCoreJsonMapper.Extension.System.Reflection;
+﻿using NETCoreJsonMapper.Extensions.System.Reflection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace NETCoreJsonMapper.Extension.System
+namespace NETCoreJsonMapper.Extensions.System
 {
     public static class TypeExtension
     {

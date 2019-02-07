@@ -1,4 +1,4 @@
-﻿namespace NETCoreJsonMapper.Interface.Mappings
+﻿namespace NETCoreJsonMapper.Interfaces.Mappings
 {
     public interface IJsonDataTarget
     {

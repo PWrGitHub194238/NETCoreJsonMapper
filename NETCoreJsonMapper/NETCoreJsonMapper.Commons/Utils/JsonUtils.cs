@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-namespace NETCoreJsonMapper.Common.Utils
+namespace NETCoreJsonMapper.Commons.Utils
 {
     internal class JsonUtils
     {

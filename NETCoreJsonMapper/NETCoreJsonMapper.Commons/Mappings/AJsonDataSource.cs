@@ -1,8 +1,8 @@
-﻿using NETCoreJsonMapper.Common.Utils;
-using NETCoreJsonMapper.Interface.Mappings;
+﻿using NETCoreJsonMapper.Commons.Utils;
+using NETCoreJsonMapper.Interfaces.Mappings;
 using System;
 
-namespace NETCoreJsonMapper.Common.Mappings
+namespace NETCoreJsonMapper.Commons.Mappings
 {
     public abstract class AJsonDataSource<TJsonTarget> : IJsonDataSource<TJsonTarget>
         where TJsonTarget : IJsonDataTarget, new()
@@ -18,7 +18,8 @@ namespace NETCoreJsonMapper.Common.Mappings
             jsonDataTargetType = jsonDataTarget.GetType();
         }
 
-        public bool IsValid(string jsonString) => ReflectionUtils.ValidateJsonStringType(jsonString: jsonString, expectedType: GetType());
+        public bool IsValid(string jsonString) => ReflectionUtils.ValidateJsonStringType(
+            jsonString: jsonString, expectedType: GetType());
 
         protected TJsonTarget GetResult()
         {

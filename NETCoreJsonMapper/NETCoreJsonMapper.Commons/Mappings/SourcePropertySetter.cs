@@ -1,13 +1,13 @@
-﻿using NETCoreJsonMapper.Common.Enums;
-using NETCoreJsonMapper.Common.Utils;
-using NETCoreJsonMapper.Extension.System;
+﻿using NETCoreJsonMapper.Commons.Enums;
+using NETCoreJsonMapper.Commons.Utils;
+using NETCoreJsonMapper.Extensions.System;
 using System;
 using System.Collections;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
-namespace NETCoreJsonMapper.Common.Mappings
+namespace NETCoreJsonMapper.Commons.Mappings
 {
     internal class SourcePropertySetter<TJsonSource, TJsonTarget>
     {

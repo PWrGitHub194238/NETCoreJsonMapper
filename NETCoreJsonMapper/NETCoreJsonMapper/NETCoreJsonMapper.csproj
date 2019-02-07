@@ -16,7 +16,6 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.CommandLineUtils" Version="1.1.1" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
-    <PackageReference Include="Serilog.Sinks.File" Version="4.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,6 +25,7 @@
     <ProjectReference Include="..\Example3\Example3.csproj" />
     <ProjectReference Include="..\Example4\Example4.csproj" />
     <ProjectReference Include="..\Example5\Example5.csproj" />
+    <ProjectReference Include="..\NETCoreJsonMapper.Loggers\NETCoreJsonMapper.Loggers.csproj" />
   </ItemGroup>
 
   <ItemGroup>

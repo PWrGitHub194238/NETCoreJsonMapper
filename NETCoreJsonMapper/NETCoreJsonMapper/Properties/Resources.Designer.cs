@@ -187,6 +187,78 @@ namespace NETCoreJsonMapper.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Load a local assembly on the path &apos;{0}&apos; to resolve classes that implements  the NETCoreJsonMapper.Interfaces.Mappings.IJsonDataTarget interface..
+        /// </summary>
+        internal static string LOG_VERBOSE_LOAD_LOCAL_ASSEMBLY_FROM_PATH {
+            get {
+                return ResourceManager.GetString("LOG_VERBOSE_LOAD_LOCAL_ASSEMBLY_FROM_PATH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Resolving fully qualified class names implementing NETCoreJsonMapper.Interfaces.Mappings.IJsonDataSource&lt;{0}&gt; interface from avaliable assemblies..
+        /// </summary>
+        internal static string LOG_VERBOSE_RESOLVE_JSON_SOURCE_CLASS_FROM_ASSEMBLIES {
+            get {
+                return ResourceManager.GetString("LOG_VERBOSE_RESOLVE_JSON_SOURCE_CLASS_FROM_ASSEMBLIES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scanning a assembly of a fully qualified name &apos;{0}&apos; for any type that implements the NETCoreJsonMapper.Interfaces.Mappings.IJsonDataSource&lt;{0}&gt; interface..
+        /// </summary>
+        internal static string LOG_VERBOSE_RESOLVE_JSON_SOURCE_CLASS_FROM_ASSEMBLY {
+            get {
+                return ResourceManager.GetString("LOG_VERBOSE_RESOLVE_JSON_SOURCE_CLASS_FROM_ASSEMBLY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fully qualified class name &apos;{0}&apos; from the &apos;{1}&apos; assembly implements the NETCoreJsonMapper.Interfaces.Mappings.IJsonDataSource&lt;{0}&gt; interface and will be used to store parsed input data from JSON files..
+        /// </summary>
+        internal static string LOG_VERBOSE_RESOLVE_JSON_SOURCE_CLASS_FROM_ASSEMBLY_VALID {
+            get {
+                return ResourceManager.GetString("LOG_VERBOSE_RESOLVE_JSON_SOURCE_CLASS_FROM_ASSEMBLY_VALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Resolving fully qualified class names implementing NETCoreJsonMapper.Interfaces.Mappings.IJsonDataTarget interface from avaliable assemblies..
+        /// </summary>
+        internal static string LOG_VERBOSE_RESOLVE_JSON_TARGET_CLASS_FROM_ASSEMBLIES {
+            get {
+                return ResourceManager.GetString("LOG_VERBOSE_RESOLVE_JSON_TARGET_CLASS_FROM_ASSEMBLIES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scanning a assembly of a fully qualified name &apos;{0}&apos; for any type that implements the NETCoreJsonMapper.Interfaces.Mappings.IJsonDataTarget interface..
+        /// </summary>
+        internal static string LOG_VERBOSE_RESOLVE_JSON_TARGET_CLASS_FROM_ASSEMBLY {
+            get {
+                return ResourceManager.GetString("LOG_VERBOSE_RESOLVE_JSON_TARGET_CLASS_FROM_ASSEMBLY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fully qualified class name &apos;{0}&apos; from the &apos;{1}&apos; assembly implements the NETCoreJsonMapper.Interfaces.Mappings.IJsonDataTarget interface and will be used to parse input data from JSON files..
+        /// </summary>
+        internal static string LOG_VERBOSE_RESOLVE_JSON_TARGET_CLASS_FROM_ASSEMBLY_VALID {
+            get {
+                return ResourceManager.GetString("LOG_VERBOSE_RESOLVE_JSON_TARGET_CLASS_FROM_ASSEMBLY_VALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Resolving fully qualified class names implementing the NETCoreJsonMapper.Interfaces.Mappings.IJsonDataTarget interface from avaliable local assemblies. Local assemblies are stored within the same directory as the main NETCoreJsonMapper assembly (they are marked as core assembly dependencies)..
+        /// </summary>
+        internal static string LOG_VERBOSE_RESOLVE_JSON_TARGET_CLASS_FROM_LOCAL_ASSEMBLIES {
+            get {
+                return ResourceManager.GetString("LOG_VERBOSE_RESOLVE_JSON_TARGET_CLASS_FROM_LOCAL_ASSEMBLIES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Giving a list of JSON files: &apos;{0}&apos;, the application will try to parse each one against the given class type: &apos;{1}&apos; and store results in the given output directory: &apos;{2}&apos;..
         /// </summary>
         internal static string LOG_VERBOSE_STARTUP_PARSE_FOR_SOURCE_JSON_CLASS_TYPE {
@@ -196,7 +268,7 @@ namespace NETCoreJsonMapper.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Locating types within a local assembly set that implements the IJsonDataSource&lt;&gt; interface and are suitable for a given type: &apos;{0}&apos;. Local assemblies are stored within the same directory as the main NETCoreJsonMapper assembly..
+        ///   Looks up a localized string similar to Locating types within a local assembly set that implements the NETCoreJsonMapper.Interfaces.Mappings.IJsonDataSource&lt;&gt; interface and are suitable for a given type: &apos;{0}&apos;. Local assemblies are stored within the same directory as the main NETCoreJsonMapper assembly..
         /// </summary>
         internal static string LOG_VERBOSE_STARTUP_SCAN_FOR_SOURCE_JSON_CLASS_TYPE {
             get {
@@ -205,7 +277,7 @@ namespace NETCoreJsonMapper.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Locating types within a local assembly set that implements the IJsonDataTarget interface. Local assemblies are stored within the same directory as the main NETCoreJsonMapper assembly..
+        ///   Looks up a localized string similar to Locating types within a local assembly set that implements the NETCoreJsonMapper.Interfaces.Mappings.IJsonDataTarget interface. Local assemblies are stored within the same directory as the main NETCoreJsonMapper assembly..
         /// </summary>
         internal static string LOG_VERBOSE_STARTUP_SCAN_FOR_TARGET_JSON_CLASS_TYPE {
             get {
@@ -214,7 +286,16 @@ namespace NETCoreJsonMapper.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Try to parse a JSON data from the file on the path: &apos;{0}&apos;..
+        ///   Looks up a localized string similar to The given set of JSON files &apos;{0}&apos; will be parsed agains a given &apos;{1}&apos; class type..
+        /// </summary>
+        internal static string LOG_VERBOSE_TRY_PARSE_JSON {
+            get {
+                return ResourceManager.GetString("LOG_VERBOSE_TRY_PARSE_JSON", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Try to parse a JSON data from the file on the path: &apos;{0}&apos; against the given &apos;{1}&apos; class type..
         /// </summary>
         internal static string LOG_VERBOSE_TRY_PARSE_JSON_FROM_PATH {
             get {

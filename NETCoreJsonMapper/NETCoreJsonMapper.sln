@@ -17,11 +17,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example3", "Example3\Exampl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example4", "Example4\Example4.csproj", "{217209C2-23AF-46B2-A743-6D7080785EC5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NETCoreJsonMapper.Extensions", "NETCoreJsonMapper.Extensions\NETCoreJsonMapper.Extensions.csproj", "{3F21F296-EFF3-41AB-8282-8BF0D787718E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NETCoreJsonMapper.Extensions", "NETCoreJsonMapper.Extensions\NETCoreJsonMapper.Extensions.csproj", "{3F21F296-EFF3-41AB-8282-8BF0D787718E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NETCoreJsonMapper.Tests", "NETCoreJsonMapper.Tests\NETCoreJsonMapper.Tests.csproj", "{4DF94B69-4CA8-4DD4-94CE-FE2700EA6DC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NETCoreJsonMapper.Tests", "NETCoreJsonMapper.Tests\NETCoreJsonMapper.Tests.csproj", "{4DF94B69-4CA8-4DD4-94CE-FE2700EA6DC1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example5", "Example5\Example5.csproj", "{93C80493-C6D8-473F-8BF4-C44017A414C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example5", "Example5\Example5.csproj", "{93C80493-C6D8-473F-8BF4-C44017A414C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NETCoreJsonMapper.Loggers", "NETCoreJsonMapper.Loggers\NETCoreJsonMapper.Loggers.csproj", "{2ADF6F8C-CF84-4555-B4A0-E13FD15DF142}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{93C80493-C6D8-473F-8BF4-C44017A414C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93C80493-C6D8-473F-8BF4-C44017A414C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93C80493-C6D8-473F-8BF4-C44017A414C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2ADF6F8C-CF84-4555-B4A0-E13FD15DF142}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ADF6F8C-CF84-4555-B4A0-E13FD15DF142}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ADF6F8C-CF84-4555-B4A0-E13FD15DF142}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ADF6F8C-CF84-4555-B4A0-E13FD15DF142}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

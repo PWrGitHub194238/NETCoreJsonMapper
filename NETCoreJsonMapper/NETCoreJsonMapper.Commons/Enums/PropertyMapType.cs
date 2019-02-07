@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NETCoreJsonMapper.Common.Enums
+namespace NETCoreJsonMapper.Commons.Enums
 {
     [Flags]
     internal enum PropertyMapType : byte

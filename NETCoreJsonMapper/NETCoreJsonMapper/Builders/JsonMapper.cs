@@ -1,9 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 
 namespace NETCoreJsonMapper.Builders
 {
@@ -13,6 +11,7 @@ namespace NETCoreJsonMapper.Builders
         private const string GET_RESULT_METHOD_NAME = "GetResult";
         private const string IS_VALID_METHOD_NAME = "IsValid";
         private const string SERIALIZE_OBJECT_METHOD_NAME = "SerializeObject";
+
         private static readonly MethodInfo JsonConvertDeserializeMethodInfo = typeof(JsonConvert)
             .GetMethods(
                 BindingFlags.Public

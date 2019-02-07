@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.CommandLineUtils;
+using NETCoreJsonMapper.Loggers.Utils;
 using NETCoreJsonMapper.Properties;
 using NETCoreJsonMapper.Utils;
 using System;
@@ -53,12 +54,12 @@ namespace NETCoreJsonMapper.Builders
             CommandOption outputOption = commandLineApplication.GetOptions()
                 .Where(o => o.Template.Equals(CMD_OUTPUT_TEMPLATE)).FirstOrDefault();
 
-            LogUtils.Logger.Verbose(Resources.LOG_VERBOSE_CMD_LINE_OPTIONS, inputOption, outputOption);
+            DefaultLogger.Verbose(Resources.LOG_VERBOSE_CMD_LINE_OPTIONS, inputOption, outputOption);
 
             if (!ValidateInputCommandOption(inputOption: inputOption, validationMessage: out string validationErrorMsg)
                 || !ValidateOutputCommandOption(outputOption: outputOption, validationMessage: out validationErrorMsg))
             {
-                LogUtils.Logger.Verbose(Resources.LOG_VERBOSE_CMD_LINE_VALIDATION_SUMMARY, validationErrorMsg);
+                DefaultLogger.Verbose(Resources.LOG_VERBOSE_CMD_LINE_VALIDATION_SUMMARY, validationErrorMsg);
                 validationRetunCode = COM_LINE_VALIDATION_ERROR_RETURN_CODE;
                 Console.WriteLine(validationErrorMsg);
                 commandLineApplication.ShowHelp();
@@ -76,14 +77,14 @@ namespace NETCoreJsonMapper.Builders
 
         private static bool ValidateInputCommandOption(CommandOption inputOption, out string validationMessage)
         {
-            LogUtils.Logger.Verbose(Resources.LOG_VERBOSE_CMD_LINE_INPUT_OPTION_VALIDATION, inputOption);
+            DefaultLogger.Verbose(Resources.LOG_VERBOSE_CMD_LINE_INPUT_OPTION_VALIDATION, inputOption);
             validationMessage = string.Empty;
 
             if (inputOption != null && inputOption.HasValue())
             {
                 foreach (string inputFullPath in inputOption.Values)
                 {
-                    LogUtils.Logger.Verbose(Resources.LOG_VERBOSE_CMD_LINE_INPUT_OPTION_PARAM_VALIDATION, inputFullPath);
+                    DefaultLogger.Verbose(Resources.LOG_VERBOSE_CMD_LINE_INPUT_OPTION_PARAM_VALIDATION, inputFullPath);
                     if (!Directory.Exists(inputFullPath))
                     {
                         validationMessage += string.Format(Resources.CMD_INPUT_VALIDATE_ERROR_NOT_EXIST, inputFullPath);
@@ -99,7 +100,7 @@ namespace NETCoreJsonMapper.Builders
 
         private static bool ValidateOutputCommandOption(CommandOption outputOption, out string validationMessage)
         {
-            LogUtils.Logger.Verbose(Resources.LOG_VERBOSE_CMD_LINE_OUTPUT_OPTION_VALIDATION, outputOption);
+            DefaultLogger.Verbose(Resources.LOG_VERBOSE_CMD_LINE_OUTPUT_OPTION_VALIDATION, outputOption);
 
             validationMessage = string.Empty;
 
@@ -110,7 +111,7 @@ namespace NETCoreJsonMapper.Builders
                 {
                     try
                     {
-                        LogUtils.Logger.Verbose(Resources.LOG_VERBOSE_CMD_LINE_OUTPUT_NOT_EXISTS_VALIDATION, outputDirectory);
+                        DefaultLogger.Verbose(Resources.LOG_VERBOSE_CMD_LINE_OUTPUT_NOT_EXISTS_VALIDATION, outputDirectory);
                         Directory.CreateDirectory(outputDirectory);
                     }
                     catch (Exception e)

@@ -1,10 +1,10 @@
-﻿using NETCoreJsonMapper.Common.Utils;
-using NETCoreJsonMapper.Extension.System;
-using NETCoreJsonMapper.Extension.System.Reflection;
+﻿using NETCoreJsonMapper.Commons.Utils;
+using NETCoreJsonMapper.Extensions.System;
+using NETCoreJsonMapper.Extensions.System.Reflection;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace NETCoreJsonMapper.Common.Mappings
+namespace NETCoreJsonMapper.Commons.Mappings
 {
     internal class SourcePropertyMapper<TJsonSource, TJsonTarget>
     {

@@ -1,4 +1,4 @@
-﻿namespace NETCoreJsonMapper.Common
+﻿namespace NETCoreJsonMapper.Commons
 {
     public static class MapRules
     {

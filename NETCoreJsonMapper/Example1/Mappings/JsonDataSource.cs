@@ -1,4 +1,4 @@
-using NETCoreJsonMapper.Common.Mappings;
+using NETCoreJsonMapper.Commons.Mappings;
 using Newtonsoft.Json;
 
 namespace Example1.Mappings

@@ -159,17 +159,44 @@
   <data name="LOG_VERBOSE_CMD_LINE_YIELD_JSON_SOURCE_FILE_PATH" xml:space="preserve">
     <value>A JSON file with a name: '{0}' within a given directory: '{1}' is found and will be processed.</value>
   </data>
+  <data name="LOG_VERBOSE_LOAD_LOCAL_ASSEMBLY_FROM_PATH" xml:space="preserve">
+    <value>Load a local assembly on the path '{0}' to resolve classes that implements  the NETCoreJsonMapper.Interfaces.Mappings.IJsonDataTarget interface.</value>
+  </data>
+  <data name="LOG_VERBOSE_RESOLVE_JSON_SOURCE_CLASS_FROM_ASSEMBLIES" xml:space="preserve">
+    <value>Resolving fully qualified class names implementing NETCoreJsonMapper.Interfaces.Mappings.IJsonDataSource&lt;{0}&gt; interface from avaliable assemblies.</value>
+  </data>
+  <data name="LOG_VERBOSE_RESOLVE_JSON_SOURCE_CLASS_FROM_ASSEMBLY" xml:space="preserve">
+    <value>Scanning a assembly of a fully qualified name '{0}' for any type that implements the NETCoreJsonMapper.Interfaces.Mappings.IJsonDataSource&lt;{0}&gt; interface.</value>
+  </data>
+  <data name="LOG_VERBOSE_RESOLVE_JSON_SOURCE_CLASS_FROM_ASSEMBLY_VALID" xml:space="preserve">
+    <value>Fully qualified class name '{0}' from the '{1}' assembly implements the NETCoreJsonMapper.Interfaces.Mappings.IJsonDataSource&lt;{0}&gt; interface and will be used to store parsed input data from JSON files.</value>
+  </data>
+  <data name="LOG_VERBOSE_RESOLVE_JSON_TARGET_CLASS_FROM_ASSEMBLIES" xml:space="preserve">
+    <value>Resolving fully qualified class names implementing NETCoreJsonMapper.Interfaces.Mappings.IJsonDataTarget interface from avaliable assemblies.</value>
+  </data>
+  <data name="LOG_VERBOSE_RESOLVE_JSON_TARGET_CLASS_FROM_ASSEMBLY" xml:space="preserve">
+    <value>Scanning a assembly of a fully qualified name '{0}' for any type that implements the NETCoreJsonMapper.Interfaces.Mappings.IJsonDataTarget interface.</value>
+  </data>
+  <data name="LOG_VERBOSE_RESOLVE_JSON_TARGET_CLASS_FROM_ASSEMBLY_VALID" xml:space="preserve">
+    <value>Fully qualified class name '{0}' from the '{1}' assembly implements the NETCoreJsonMapper.Interfaces.Mappings.IJsonDataTarget interface and will be used to parse input data from JSON files.</value>
+  </data>
+  <data name="LOG_VERBOSE_RESOLVE_JSON_TARGET_CLASS_FROM_LOCAL_ASSEMBLIES" xml:space="preserve">
+    <value>Resolving fully qualified class names implementing the NETCoreJsonMapper.Interfaces.Mappings.IJsonDataTarget interface from avaliable local assemblies. Local assemblies are stored within the same directory as the main NETCoreJsonMapper assembly (they are marked as core assembly dependencies).</value>
+  </data>
   <data name="LOG_VERBOSE_STARTUP_PARSE_FOR_SOURCE_JSON_CLASS_TYPE" xml:space="preserve">
     <value>Giving a list of JSON files: '{0}', the application will try to parse each one against the given class type: '{1}' and store results in the given output directory: '{2}'.</value>
   </data>
   <data name="LOG_VERBOSE_STARTUP_SCAN_FOR_SOURCE_JSON_CLASS_TYPE" xml:space="preserve">
-    <value>Locating types within a local assembly set that implements the IJsonDataSource&lt;&gt; interface and are suitable for a given type: '{0}'. Local assemblies are stored within the same directory as the main NETCoreJsonMapper assembly.</value>
+    <value>Locating types within a local assembly set that implements the NETCoreJsonMapper.Interfaces.Mappings.IJsonDataSource&lt;&gt; interface and are suitable for a given type: '{0}'. Local assemblies are stored within the same directory as the main NETCoreJsonMapper assembly.</value>
   </data>
   <data name="LOG_VERBOSE_STARTUP_SCAN_FOR_TARGET_JSON_CLASS_TYPE" xml:space="preserve">
-    <value>Locating types within a local assembly set that implements the IJsonDataTarget interface. Local assemblies are stored within the same directory as the main NETCoreJsonMapper assembly.</value>
+    <value>Locating types within a local assembly set that implements the NETCoreJsonMapper.Interfaces.Mappings.IJsonDataTarget interface. Local assemblies are stored within the same directory as the main NETCoreJsonMapper assembly.</value>
+  </data>
+  <data name="LOG_VERBOSE_TRY_PARSE_JSON" xml:space="preserve">
+    <value>The given set of JSON files '{0}' will be parsed agains a given '{1}' class type.</value>
   </data>
   <data name="LOG_VERBOSE_TRY_PARSE_JSON_FROM_PATH" xml:space="preserve">
-    <value>Try to parse a JSON data from the file on the path: '{0}'.</value>
+    <value>Try to parse a JSON data from the file on the path: '{0}' against the given '{1}' class type.</value>
   </data>
   <data name="LOG_VERBOSE_TRY_PARSE_JSON_FROM_PATH_MATCH" xml:space="preserve">
     <value>The JSON data from the file on the path: '{0}' matches the definition of the class: '{1}' and will be processed.</value>
