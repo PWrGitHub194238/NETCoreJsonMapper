@@ -59,5 +59,50 @@ namespace NETCoreJsonMapper.Commons.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check if a given JSON file&apos;s key set matches the property set of a class with the fully qualified name &apos;{0}&apos;..
+        /// </summary>
+        internal static string LOG_VERBOSE_VALIDATE_JSON_STRING {
+            get {
+                return ResourceManager.GetString("LOG_VERBOSE_VALIDATE_JSON_STRING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A class with the fully qualified name &apos;{0}&apos; has the following set of properties that are marked by a JsonAttribute: &apos;{1}&apos;..
+        /// </summary>
+        internal static string LOG_VERBOSE_VALIDATE_JSON_STRING_CLASS_PROPERTY_SET {
+            get {
+                return ResourceManager.GetString("LOG_VERBOSE_VALIDATE_JSON_STRING_CLASS_PROPERTY_SET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to For the given JSON file the following key names was found: &apos;{0}&apos;..
+        /// </summary>
+        internal static string LOG_VERBOSE_VALIDATE_JSON_STRING_KEY_SET {
+            get {
+                return ResourceManager.GetString("LOG_VERBOSE_VALIDATE_JSON_STRING_KEY_SET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The inputed JSON content from a file could NOT be parsed because it does NOT match a targeted class. The targeted class has less properties that the given JSON file. Missing properties: &apos;{0}&apos;..
+        /// </summary>
+        internal static string LOG_VERBOSE_VALIDATE_JSON_STRING_SOURCE_KEY_SET_MISMATCH {
+            get {
+                return ResourceManager.GetString("LOG_VERBOSE_VALIDATE_JSON_STRING_SOURCE_KEY_SET_MISMATCH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The inputed JSON content from a file could NOT be parsed because it does NOT match a targeted class. the targeted class has more properties that the given JSON file. Additional properties that prevents from valid key-property mapping are: &apos;{0}&apos;..
+        /// </summary>
+        internal static string LOG_VERBOSE_VALIDATE_JSON_STRING_TARGET_KEY_SET_MISMATCH {
+            get {
+                return ResourceManager.GetString("LOG_VERBOSE_VALIDATE_JSON_STRING_TARGET_KEY_SET_MISMATCH", resourceCulture);
+            }
+        }
     }
 }

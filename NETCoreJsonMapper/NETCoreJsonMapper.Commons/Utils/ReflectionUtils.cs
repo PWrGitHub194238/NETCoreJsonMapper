@@ -50,8 +50,11 @@ namespace NETCoreJsonMapper.Commons.Utils
         /// </param>
         internal static bool ValidateJsonStringType(string jsonString, Type expectedType)
         {
+            DefaultLogger.Verbose(Resources.LOG_VERBOSE_VALIDATE_JSON_STRING, expectedType.FullName);
             ISet<string> jsonKeySet = JsonUtils.GetJsonKeyCollection(jsonString: jsonString);
+            DefaultLogger.Verbose(Resources.LOG_VERBOSE_VALIDATE_JSON_STRING_KEY_SET, jsonKeySet);
             ISet<string> classKeySet = GetClassPropertyCollection(jsonType: expectedType);
+            DefaultLogger.Verbose(Resources.LOG_VERBOSE_VALIDATE_JSON_STRING_CLASS_PROPERTY_SET, expectedType.FullName, classKeySet);
             return JsonUtils.ValidateJsonWithClass(sourceJsonKeySet: jsonKeySet,
                 targetClassKeySet: classKeySet);
         }

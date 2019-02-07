@@ -1,7 +1,6 @@
 ﻿using NETCoreJsonMapper.Builders;
 using NETCoreJsonMapper.Loggers.Utils;
 using NETCoreJsonMapper.Properties;
-using NETCoreJsonMapper.Utils;
 using System;
 using System.Collections.Generic;
 using System.IO;

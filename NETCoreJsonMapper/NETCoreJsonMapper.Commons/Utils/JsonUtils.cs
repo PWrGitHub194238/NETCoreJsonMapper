@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using NETCoreJsonMapper.Commons.Properties;
+using NETCoreJsonMapper.Loggers.Utils;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 namespace NETCoreJsonMapper.Commons.Utils
@@ -31,8 +33,17 @@ namespace NETCoreJsonMapper.Commons.Utils
             result &= targetClassKeySet.Count > 0;
             result &= sourceJsonKeySet.Count == targetClassKeySet.Count;
 
-            sourceJsonKeySet.ExceptWith(targetClassKeySet);
-            result &= sourceJsonKeySet.Count == 0;
+            if (sourceJsonKeySet.Count >= targetClassKeySet.Count)
+            {
+                sourceJsonKeySet.ExceptWith(targetClassKeySet);
+                result &= sourceJsonKeySet.Count == 0;
+                DefaultLogger.Verbose(Resources.LOG_VERBOSE_VALIDATE_JSON_STRING_SOURCE_KEY_SET_MISMATCH, sourceJsonKeySet);
+            }
+            else
+            {
+                targetClassKeySet.ExceptWith(sourceJsonKeySet);
+                DefaultLogger.Verbose(Resources.LOG_VERBOSE_VALIDATE_JSON_STRING_TARGET_KEY_SET_MISMATCH, targetClassKeySet);
+            }
 
             return result;
         }
