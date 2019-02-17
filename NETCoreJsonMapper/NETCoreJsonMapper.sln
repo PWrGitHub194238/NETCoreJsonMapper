@@ -23,7 +23,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NETCoreJsonMapper.Tests", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example5", "Example5\Example5.csproj", "{93C80493-C6D8-473F-8BF4-C44017A414C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NETCoreJsonMapper.Loggers", "NETCoreJsonMapper.Loggers\NETCoreJsonMapper.Loggers.csproj", "{2ADF6F8C-CF84-4555-B4A0-E13FD15DF142}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NETCoreJsonMapper.Loggers", "NETCoreJsonMapper.Loggers\NETCoreJsonMapper.Loggers.csproj", "{2ADF6F8C-CF84-4555-B4A0-E13FD15DF142}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TemplatesDemo", "TemplatesDemo\TemplatesDemo.csproj", "{FB25AC56-59CA-4811-B103-368E543C9523}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NETCoreJsonMapper.Attributes", "NETCoreJsonMapper.Attributes\NETCoreJsonMapper.Attributes.csproj", "{9D414872-0250-4083-8945-F293BD637530}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +79,14 @@ Global
 		{2ADF6F8C-CF84-4555-B4A0-E13FD15DF142}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2ADF6F8C-CF84-4555-B4A0-E13FD15DF142}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2ADF6F8C-CF84-4555-B4A0-E13FD15DF142}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB25AC56-59CA-4811-B103-368E543C9523}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB25AC56-59CA-4811-B103-368E543C9523}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB25AC56-59CA-4811-B103-368E543C9523}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB25AC56-59CA-4811-B103-368E543C9523}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D414872-0250-4083-8945-F293BD637530}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D414872-0250-4083-8945-F293BD637530}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D414872-0250-4083-8945-F293BD637530}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D414872-0250-4083-8945-F293BD637530}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

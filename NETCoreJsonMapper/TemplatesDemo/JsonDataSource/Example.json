@@ -1,0 +1,101 @@
+{
+  "ItemStructure": [
+    {
+      "PageInfo": {
+        "ID": "<PageInfo-ID-value>",
+        "DisplayName": "<PageInfo-DisplayName-value>",
+        "ParentPath": "<PageInfo-ParentPath-value>",
+        "Language": "<PageInfo-Language-value>",
+        "Template": {
+          "TemplatePath": "<PageInfo-TemplatePath-value>",
+          "TemplateSections": [
+            {
+              "Name": "<PageInfo-Template-TemplateSections-Name-value#1>",
+              "Fields": [
+                {
+                  "Name": "<PageInfo-Template-TemplateSections-Fields-Name#1-value#1>",
+                  "Type": "<PageInfo-Template-TemplateSections-Fields-Type#1-value#1>",
+                  "Value": "<PageInfo-Template-TemplateSections-Fields-Value#1-value#1>",
+                  "FormatItem": [
+                    {
+                      "Index": "<PageInfo-Template-TemplateSections-Fields-Value#1-FormatItem-Index-value>",
+                      "Value": "<PageInfo-Template-TemplateSections-Fields-Value#1-FormatItem-Value-value>"
+                    }
+                  ]
+                },
+                {
+                  "Name": "<PageInfo-Template-TemplateSections-Fields-Name#1-value#2>",
+                  "Type": "<PageInfo-Template-TemplateSections-Fields-Type#1-value#2>",
+                  "Value": "<PageInfo-Template-TemplateSections-Fields-Value#1-value#2>",
+                  "FormatItem": [
+                    {
+                      "Index": "<PageInfo-Template-TemplateSections-Fields-Value#2-FormatItem-Index-value#1>",
+                      "Value": "<PageInfo-Template-TemplateSections-Fields-Value#2-FormatItem-Value-value#1>"
+                    },
+                    {
+                      "Index": "<PageInfo-Template-TemplateSections-Fields-Value#2-FormatItem-Index-value#2>",
+                      "Value": "<PageInfo-Template-TemplateSections-Fields-Value#2-FormatItem-Value-value#2>"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Name": "<PageInfo-Template-TemplateSections-Name-value#2>",
+              "Fields": [
+                {
+                  "Name": "<PageInfo-Template-TemplateSections-Fields-Name#2-value#1>",
+                  "Type": "<PageInfo-Template-TemplateSections-Fields-Type#2-value#1>",
+                  "Value": "<PageInfo-Template-TemplateSections-Fields-Value#2-value#1>",
+                  "FormatItem": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "Renderings": [
+        {
+          "ID": "<Renderings-ID-value#1>",
+          "Name": "<Renderings-Name-value#1>",
+          "Placeholder": "<Renderings-Placeholder-value#1>",
+          "DataSource": "<Renderings-DataSource-value#1>",
+          "Layout": "<Renderings-Layout-value#1>",
+          "Parameters": "<Renderings-Parameters-value#1>"
+        },
+        {
+          "ID": "<Renderings-ID-value# 2 > ",
+          "Name": "<Renderings-Name-value#2>",
+          "Placeholder": "<Renderings-Placeholder-value#2>",
+          "DataSource": "<Renderings-DataSource-value#2>",
+          "Layout": "<Renderings-Layout-value#2>",
+          "Parameters": "<Renderings-Parameters-value#2>"
+        }
+      ],
+      "Data": [
+        {
+          "ID": "<Data#1-ID-value>",
+          "DisplayName": "<Data#1-DisplayName-value>",
+          "ParentPath": "<Data#1-ParentPath-value>",
+          "Language": "<Data#1-Language-value>",
+          "Template": {
+            "TemplatePath": "<Data#1-TemplatePath-value>",
+            "TemplateSections": [
+              {
+                "Name": "<Data#1-Template-TemplateSections-Name-value# 1 > ",
+                "Fields": [
+                  {
+                    "Name": "<Data#1-Template-TemplateSections-Fields-Name#1-value#1>",
+                    "Type": "<Data#1-Template-TemplateSections-Fields-Type#1-value#1>",
+                    "Value": "<Data#1-Template-TemplateSections-Fields-Value#1-value#1>",
+                    "FormatItem": []
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

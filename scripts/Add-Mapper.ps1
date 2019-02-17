@@ -29,8 +29,8 @@ function global:Add-Mapper
     Remove-Item -Path "$SLN_DIR\$ProjectName\*.cs" -Force
 
     dotnet add "$SLN_DIR\NETCoreJsonMapper" reference "$SLN_DIR\$projectName"
-    dotnet add "$SLN_DIR\$projectName" reference "$SLN_DIR\NETCoreJsonMapper.Common\"
-    dotnet add "$SLN_DIR\$projectName" reference "$SLN_DIR\NETCoreJsonMapper.Interface\"
+    dotnet add "$SLN_DIR\$projectName" reference "$SLN_DIR\NETCoreJsonMapper.Commons\NETCoreJsonMapper.Commons.csproj"
+    dotnet add "$SLN_DIR\$projectName" reference "$SLN_DIR\NETCoreJsonMapper.Interfaces\NETCoreJsonMapper.Interfaces.csproj"
     dotnet sln "$SLN_DIR\NETCoreJsonMapper.sln" add "$SLN_DIR\$projectName"
 
     Create-ProjectFiles -ProjectName $projectName
@@ -109,7 +109,7 @@ function local:Create-JsonDataSource
         -Path "$SLN_DIR\$ProjectName\Mappings\JsonDataSource.cs" | Out-Null
     [string]$jsonDataSourceTemplateClass =
 @"
-using NETCoreJsonMapper.Common.Mappings;
+using NETCoreJsonMapper.Commons.Mappings;
 using Newtonsoft.Json;
 
 namespace {0}.Mappings
@@ -167,7 +167,7 @@ function local:Create-JsonDataTarget
         -Path "$SLN_DIR\$ProjectName\Mappings\JsonDataTarget.cs" | Out-Null
     [string]$jsonDataTargetTemplateClass =
 @"
-using NETCoreJsonMapper.Interface.Mappings;
+using NETCoreJsonMapper.Interfaces.Mappings;
 using Newtonsoft.Json;
 
 namespace {0}.Mappings

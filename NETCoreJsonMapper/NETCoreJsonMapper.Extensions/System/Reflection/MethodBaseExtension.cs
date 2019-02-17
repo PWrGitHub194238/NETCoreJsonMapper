@@ -8,8 +8,7 @@ namespace NETCoreJsonMapper.Extensions.System.Reflection
     {
         public static bool HasMethodOneParameterOfType(this MethodBase method, Type parameterType)
         {
-            return HasMethodParameterOfTypes(method: method,
-                parameterTypes: parameterType);
+            return method.HasMethodParameterOfTypes(parameterTypes: parameterType);
         }
 
         public static bool HasMethodParameterOfTypes(this MethodBase method, params Type[] parameterTypes)

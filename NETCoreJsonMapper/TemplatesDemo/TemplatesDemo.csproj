@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\NETCoreJsonMapper.Commons\NETCoreJsonMapper.Commons.csproj" />
+    <ProjectReference Include="..\NETCoreJsonMapper.Interfaces\NETCoreJsonMapper.Interfaces.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Structure\SC8\ItemStructure\Page\Data\" />
+    <Folder Include="Structure\SC9\ItemStructure\Page\Data\" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+</Project>
